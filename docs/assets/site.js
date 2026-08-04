@@ -51,10 +51,16 @@
     var worldSwitcherClose = document.querySelector('[data-world-switcher-close]');
 
     if (worldSwitcher && worldSwitcherToggle && worldSwitcherPanel) {
+        var updateWorldSwitcherMode = function () {
+            var shouldCompact = window.scrollY > 280 || window.innerWidth <= 720;
+            worldSwitcher.classList.toggle('is-compact', shouldCompact && worldSwitcherToggle.getAttribute('aria-expanded') !== 'true');
+        };
+
         var setWorldSwitcher = function (isOpen, restoreFocus) {
             worldSwitcherToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             worldSwitcher.classList.toggle('is-open', isOpen);
             worldSwitcherPanel.hidden = !isOpen;
+            updateWorldSwitcherMode();
             if (restoreFocus) {
                 worldSwitcherToggle.focus();
             }
@@ -81,6 +87,10 @@
                 setWorldSwitcher(false, true);
             }
         });
+
+        window.addEventListener('scroll', updateWorldSwitcherMode, { passive: true });
+        window.addEventListener('resize', updateWorldSwitcherMode);
+        updateWorldSwitcherMode();
     }
 
     var forms = document.querySelectorAll('[data-lead-form]');
