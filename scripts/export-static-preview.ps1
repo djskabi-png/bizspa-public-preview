@@ -51,6 +51,7 @@ foreach ($route in $routes) {
         $html = $html -replace '(?i)<meta\s+name=["'']robots["''][^>]*>', '<meta name="robots" content="noindex, nofollow">'
     }
     $html = $html -replace '(?i)(<body[^>]*>)', ('$1' + $banner)
+    $html = $html -replace '(?i)<button([^>]*type=["'']submit["''][^>]*)>', '<button$1 disabled aria-disabled="true">'
 
     $relative = $path.Trim('/')
     $destinationDirectory = Join-Path $publicRoot ($relative -replace '/', '\')
