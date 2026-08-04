@@ -32,11 +32,6 @@ foreach ($parsedRoute in $parsedRoutes) {
     $routes += $parsedRoute
 }
 
-$banner = @'
-<div class="bizspa-preview-notice" role="status">&#1514;&#1510;&#1493;&#1490;&#1492; &#1502;&#1493;&#1511;&#1491;&#1502;&#1514; &#1513;&#1500; &#1492;&#1488;&#1514;&#1512; &#1492;&#1495;&#1491;&#1513;. &#1492;&#1496;&#1508;&#1505;&#1497;&#1501; &#1488;&#1497;&#1504;&#1501; &#1508;&#1506;&#1497;&#1500;&#1497;&#1501; &#1489;&#1513;&#1500;&#1489; &#1494;&#1492;.</div>
-<style>.bizspa-preview-notice{position:relative;z-index:9999;padding:9px 16px;background:#143f43;color:#fff;text-align:center;font:600 14px/1.5 Heebo,Assistant,Arial,sans-serif}.bizspa-preview-notice+*{scroll-margin-top:42px}</style>
-'@
-
 foreach ($route in $routes) {
     $path = [string] $route.path
     try {
@@ -51,7 +46,6 @@ foreach ($route in $routes) {
     } else {
         $html = $html -replace '(?i)<meta\s+name=["'']robots["''][^>]*>', '<meta name="robots" content="noindex, nofollow">'
     }
-    $html = $html -replace '(?i)(<body[^>]*>)', ('$1' + $banner)
     $html = $html -replace '(?i)<button([^>]*type=["'']submit["''][^>]*)>', '<button$1 disabled aria-disabled="true">'
 
     $relative = $path.Trim('/')
