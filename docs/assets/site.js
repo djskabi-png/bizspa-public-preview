@@ -45,6 +45,44 @@
         }, { passive: true });
     }
 
+    var worldSwitcher = document.querySelector('[data-world-switcher]');
+    var worldSwitcherToggle = document.querySelector('[data-world-switcher-toggle]');
+    var worldSwitcherPanel = document.querySelector('[data-world-switcher-panel]');
+    var worldSwitcherClose = document.querySelector('[data-world-switcher-close]');
+
+    if (worldSwitcher && worldSwitcherToggle && worldSwitcherPanel) {
+        var setWorldSwitcher = function (isOpen, restoreFocus) {
+            worldSwitcherToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            worldSwitcher.classList.toggle('is-open', isOpen);
+            worldSwitcherPanel.hidden = !isOpen;
+            if (restoreFocus) {
+                worldSwitcherToggle.focus();
+            }
+        };
+
+        worldSwitcherToggle.addEventListener('click', function () {
+            setWorldSwitcher(worldSwitcherToggle.getAttribute('aria-expanded') !== 'true', false);
+        });
+
+        if (worldSwitcherClose) {
+            worldSwitcherClose.addEventListener('click', function () {
+                setWorldSwitcher(false, true);
+            });
+        }
+
+        document.addEventListener('click', function (event) {
+            if (!worldSwitcher.contains(event.target) && worldSwitcherToggle.getAttribute('aria-expanded') === 'true') {
+                setWorldSwitcher(false, false);
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && worldSwitcherToggle.getAttribute('aria-expanded') === 'true') {
+                setWorldSwitcher(false, true);
+            }
+        });
+    }
+
     var forms = document.querySelectorAll('[data-lead-form]');
     Array.prototype.forEach.call(forms, function (form) {
         form.addEventListener('submit', function (event) {
