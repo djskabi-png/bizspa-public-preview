@@ -6,7 +6,8 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
-$publicRoot = Join-Path $projectRoot 'public'
+$publicRoot = Join-Path $projectRoot 'docs'
+$customDomain = 'bizspa.spaplus.co'
 if ($SourceProject -eq '') {
     $SourceProject = Join-Path (Split-Path -Parent $projectRoot) 'bizspa-site-rebuild'
 }
@@ -61,6 +62,10 @@ foreach ($route in $routes) {
 
 Copy-Item -LiteralPath (Join-Path $sourceSite 'assets') -Destination (Join-Path $publicRoot 'assets') -Recurse
 [IO.File]::WriteAllText((Join-Path $publicRoot 'robots.txt'), "User-agent: *`nDisallow: /`n", [Text.UTF8Encoding]::new($false))
+[IO.File]::WriteAllText((Join-Path $publicRoot '.nojekyll'), '', [Text.UTF8Encoding]::new($false))
+[IO.File]::WriteAllText((Join-Path $publicRoot 'CNAME'), $customDomain + "`n", [Text.UTF8Encoding]::new($false))
+$rootDocument = '<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BIZonline</title><meta http-equiv="refresh" content="0; url=/he/"><link rel="canonical" href="https://' + $customDomain + '/he/"></head><body><p><a href="/he/">BIZonline</a></p></body></html>'
+[IO.File]::WriteAllText((Join-Path $publicRoot 'index.html'), $rootDocument, [Text.UTF8Encoding]::new($false))
 
 [pscustomobject]@{
     pages = $routes.Count
