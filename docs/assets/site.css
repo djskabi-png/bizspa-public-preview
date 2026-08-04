@@ -256,9 +256,13 @@ h3 { font-size: 1.45rem; }
 .inner-panel i { width: 9px; height: 9px; border-radius: 50%; background: var(--coral); }
 .audience-section { padding: 110px 0; background: #fff; }
 .audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.audience-grid article { padding: 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--cream); }
-.audience-grid article > span { display: block; width: 42px; height: 42px; margin-bottom: 42px; border-radius: 14px; background: var(--mint-2); }
+.audience-card { position: relative; display: flex; min-height: 264px; padding: 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--cream); color: var(--ink); flex-direction: column; text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.audience-card:hover, .audience-card:focus-visible { transform: translateY(-5px); border-color: var(--coral); box-shadow: 0 20px 42px rgba(20,63,67,.12); }
+.audience-card-number { display: grid; width: 42px; height: 42px; margin-bottom: 38px; border-radius: 14px; background: var(--mint-2); color: var(--ink); place-items: center; font-size: .78rem; font-weight: 800; }
+.audience-card h3 { margin: 0 0 12px; }
 .audience-grid p { margin: 0; color: var(--muted); font-size: .9rem; }
+.audience-card > b { display: flex; margin-top: auto; padding-top: 22px; color: var(--coral-dark); align-items: center; justify-content: space-between; font-size: .82rem; }
+.audience-card > b i { font-style: normal; font-size: 1.15rem; }
 .world-product-story { padding: 115px 0; background: var(--mint); }
 .world-product-media { display: grid; grid-template-columns: 1.25fr .75fr; gap: 18px; }
 .world-product-media figure { margin: 0; padding: 12px; border: 1px solid var(--line); border-radius: 27px; background: #fff; box-shadow: 0 22px 48px rgba(18,60,64,.09); }
