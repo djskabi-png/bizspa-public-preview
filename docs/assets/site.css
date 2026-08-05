@@ -378,6 +378,72 @@ h3 { font-size: 1.45rem; }
 .capability-list b { color: var(--coral-dark); font-size: .75rem; }
 .capability-list h2 { margin: 0; font-size: 1.5rem; }
 
+.capability-hero-rich { min-height: auto; padding: 105px 0 120px; background: radial-gradient(circle at 12% 16%, rgba(220, 205, 248, .58), transparent 34%), radial-gradient(circle at 85% 78%, rgba(205, 239, 227, .62), transparent 28%), var(--cream); }
+.capability-rich-grid { display: grid; grid-template-columns: minmax(0, .88fr) minmax(560px, 1.12fr); gap: 72px; align-items: center; }
+.capability-copy h1 { max-width: 720px; margin: 0 0 24px; font-size: clamp(3rem, 5.8vw, 5.65rem); line-height: .98; letter-spacing: -.055em; }
+.capability-lead { max-width: 680px; margin: 0; color: var(--muted); font-size: 1.18rem; line-height: 1.85; }
+.capability-actions { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; margin-top: 30px; }
+.capability-actions .text-link { color: var(--ink); font-weight: 800; text-decoration: none; }
+.capability-screen-card { overflow: hidden; margin: 0; border: 1px solid rgba(17, 68, 71, .14); border-radius: 30px; background: #fff; box-shadow: 0 35px 90px rgba(17, 68, 71, .16); transform: perspective(1200px) rotateY(3deg) rotateX(1deg); }
+[dir="ltr"] .capability-screen-card { transform: perspective(1200px) rotateY(-3deg) rotateX(1deg); }
+.capability-screen-bar { display: flex; gap: 7px; align-items: center; height: 48px; padding: 0 20px; background: #f3f5f4; border-bottom: 1px solid rgba(17, 68, 71, .09); }
+.capability-screen-bar i { width: 9px; height: 9px; border-radius: 50%; background: #d8e1de; }
+.capability-screen-bar i:last-child { background: var(--coral); }
+.capability-screen-media { height: 380px; background: #eef2f0; }
+.capability-screen-media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.capability-screen-media-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; }
+.capability-screen-media-split img { min-width: 0; }
+.capability-screen-card figcaption { display: grid; gap: 5px; padding: 21px 25px 24px; }
+.capability-screen-card figcaption strong { color: var(--ink); font-size: 1.05rem; }
+.capability-screen-card figcaption span { color: var(--muted); font-size: .84rem; line-height: 1.55; }
+.capability-problem-section { padding: 95px 0; background: #fff; }
+.capability-problem-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: 90px; align-items: start; }
+.section-index { margin: 0 0 14px; color: var(--coral-dark); font-size: .74rem; font-weight: 900; letter-spacing: .16em; }
+.capability-problem-grid h2, .capability-section-heading h2, .capability-management-grid h2, .capability-faq-intro h2, .capability-cta-card h2 { margin: 0; font-size: clamp(2.2rem, 4vw, 4.1rem); line-height: 1.08; letter-spacing: -.045em; }
+.capability-problem-grid > p { margin: 20px 0 0; color: var(--muted); font-size: 1.24rem; line-height: 1.9; }
+.capability-detail-section { padding: 110px 0; background: #f3f7f5; }
+.capability-section-heading { display: grid; grid-template-columns: 1.1fr .9fr; gap: 70px; align-items: end; margin-bottom: 52px; }
+.capability-section-heading > p { max-width: 540px; margin: 0; color: var(--muted); line-height: 1.8; }
+.capability-feature-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.capability-feature-grid article { min-height: 235px; padding: 34px; border: 1px solid rgba(17, 68, 71, .13); border-radius: 25px; background: rgba(255,255,255,.88); }
+.capability-feature-grid b { display: inline-grid; place-items: center; width: 38px; height: 38px; margin-bottom: 34px; border-radius: 12px; background: rgba(239, 107, 112, .13); color: var(--coral-dark); font-size: .72rem; }
+.capability-feature-grid h3 { margin: 0 0 11px; color: var(--ink); font-size: 1.42rem; }
+.capability-feature-grid p { margin: 0; color: var(--muted); line-height: 1.75; }
+.capability-workflow-section { padding: 110px 0; background: var(--ink); color: #fff; }
+.capability-section-heading-light h2 { color: #fff; }
+.capability-section-heading-light > p { color: rgba(255,255,255,.7); }
+.capability-workflow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; }
+.capability-workflow li { position: relative; min-height: 245px; padding: 28px 26px; border-top: 1px solid rgba(255,255,255,.22); border-bottom: 1px solid rgba(255,255,255,.22); }
+.capability-workflow li + li { border-inline-start: 1px solid rgba(255,255,255,.22); }
+.capability-workflow li > span { color: var(--coral); font-size: .75rem; font-weight: 900; }
+.capability-workflow li > div { position: absolute; inset-inline: 26px; bottom: 26px; }
+.capability-workflow h3 { margin: 0 0 10px; color: #fff; font-size: 1.35rem; }
+.capability-workflow p { margin: 0; color: rgba(255,255,255,.68); line-height: 1.65; }
+.capability-management-section { padding: 110px 0; background: var(--cream); }
+.capability-management-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: start; }
+.capability-management-grid > div:first-child > p:last-child { max-width: 500px; color: var(--muted); font-size: 1.05rem; line-height: 1.8; }
+.capability-management-list { border-top: 1px solid var(--line); }
+.capability-management-list article { display: grid; grid-template-columns: 52px 1fr; gap: 18px; align-items: center; min-height: 92px; border-bottom: 1px solid var(--line); }
+.capability-management-list span { color: var(--coral-dark); font-size: .72rem; font-weight: 900; }
+.capability-management-list h3 { margin: 0; font-size: 1.28rem; }
+.capability-faq-section { padding: 110px 0; background: #fff; }
+.capability-faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: start; }
+.capability-faq-intro { position: sticky; top: 120px; }
+.capability-faq-intro > p:not(.section-index) { max-width: 480px; color: var(--muted); line-height: 1.75; }
+.capability-faq-intro .button { margin-top: 18px; }
+.capability-faq-list { border-top: 1px solid var(--line); }
+.capability-faq-list details { padding: 25px 0; border-bottom: 1px solid var(--line); }
+.capability-faq-list summary { position: relative; padding-inline-end: 42px; color: var(--ink); font-size: 1.2rem; font-weight: 800; cursor: pointer; list-style: none; }
+.capability-faq-list summary::-webkit-details-marker { display: none; }
+.capability-faq-list summary::after { content: '+'; position: absolute; inset-inline-end: 5px; top: -3px; color: var(--coral-dark); font-size: 1.7rem; font-weight: 400; }
+.capability-faq-list details[open] summary::after { content: '−'; }
+.capability-faq-list details p { margin: 18px 0 0; padding-inline-end: 42px; color: var(--muted); line-height: 1.8; }
+.capability-cta-section { padding: 0 0 110px; background: #fff; }
+.capability-cta-card { display: flex; gap: 50px; align-items: center; justify-content: space-between; padding: 60px; border-radius: 32px; background: linear-gradient(135deg, #173f42, #0b3032); color: #fff; }
+.capability-cta-card h2 { max-width: 760px; color: #fff; }
+.capability-cta-card p:not(.eyebrow) { max-width: 670px; color: rgba(255,255,255,.7); line-height: 1.75; }
+.capability-compact-section { padding: 95px 0; background: #fff; }
+
 .features-hero { padding: 115px 0 95px; background: linear-gradient(135deg, var(--cream), var(--mint)); }
 .features-hero-inner { max-width: 970px; }
 .features-hero h1 { font-size: clamp(3rem, 7vw, 6rem); }
@@ -515,6 +581,12 @@ h3 { font-size: 1.45rem; }
     .related-capabilities-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .about-method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .faq-page-grid aside { position: static; }
+    .capability-rich-grid { grid-template-columns: 1fr; gap: 58px; }
+    .capability-screen-card, [dir="ltr"] .capability-screen-card { transform: none; }
+    .capability-problem-grid, .capability-section-heading, .capability-management-grid, .capability-faq-grid { grid-template-columns: 1fr; gap: 35px; }
+    .capability-workflow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .capability-workflow li:nth-child(3) { border-inline-start: 0; }
+    .capability-faq-intro { position: static; }
 }
 
 @media (max-width: 720px) {
@@ -602,6 +674,28 @@ h3 { font-size: 1.45rem; }
     .faq-grid { gap: 35px; }
     .capability-hero { padding: 80px 0; }
     .capability-grid { gap: 45px; }
+    .capability-hero-rich { padding: 68px 0 76px; }
+    .capability-rich-grid { gap: 42px; }
+    .capability-copy h1 { font-size: clamp(2.75rem, 13vw, 4.3rem); }
+    .capability-lead { font-size: 1.02rem; }
+    .capability-actions { align-items: flex-start; flex-direction: column; }
+    .capability-screen-card { border-radius: 22px; }
+    .capability-screen-media { height: 245px; }
+    .capability-screen-media-split { grid-template-columns: 1fr; height: 360px; }
+    .capability-screen-media-split img { height: 180px; }
+    .capability-screen-card figcaption { padding: 17px 18px 20px; }
+    .capability-problem-section, .capability-detail-section, .capability-workflow-section, .capability-management-section, .capability-faq-section { padding: 78px 0; }
+    .capability-problem-grid > p { font-size: 1.08rem; }
+    .capability-feature-grid { grid-template-columns: 1fr; }
+    .capability-feature-grid article { min-height: auto; padding: 27px; }
+    .capability-feature-grid b { margin-bottom: 25px; }
+    .capability-workflow { grid-template-columns: 1fr; }
+    .capability-workflow li, .capability-workflow li:nth-child(3) { min-height: 190px; border-inline-start: 0; border-bottom: 0; }
+    .capability-workflow li:last-child { border-bottom: 1px solid rgba(255,255,255,.22); }
+    .capability-management-list article { min-height: 78px; }
+    .capability-faq-list summary { font-size: 1.05rem; }
+    .capability-cta-section { padding-bottom: 78px; }
+    .capability-cta-card { align-items: flex-start; flex-direction: column; padding: 34px 26px; }
     .features-hero { padding: 82px 0 68px; }
     .features-directory { padding: 70px 0 84px; }
     .feature-card { min-height: 290px; padding: 25px; }
