@@ -93,6 +93,85 @@
         updateWorldSwitcherMode();
     }
 
+    var productCarousel = document.querySelector('[data-product-carousel]');
+    if (productCarousel) {
+        var productTabs = productCarousel.querySelectorAll('[data-product-tab]');
+        var productSlides = productCarousel.querySelectorAll('[data-product-slide]');
+        var productCounter = productCarousel.querySelector('[data-product-counter]');
+        var productIndex = 0;
+        var productTimer = null;
+        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        var showProductSlide = function (nextIndex, moveFocus) {
+            productIndex = (nextIndex + productSlides.length) % productSlides.length;
+            Array.prototype.forEach.call(productSlides, function (slide, index) {
+                var isActive = index === productIndex;
+                slide.classList.toggle('is-active', isActive);
+                slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+            });
+            Array.prototype.forEach.call(productTabs, function (tab, index) {
+                var isActive = index === productIndex;
+                tab.classList.toggle('is-active', isActive);
+                tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                tab.setAttribute('tabindex', isActive ? '0' : '-1');
+                if (isActive && moveFocus) {
+                    tab.focus();
+                }
+            });
+            if (productCounter) {
+                productCounter.textContent = ('0' + (productIndex + 1)).slice(-2) + ' / 04';
+            }
+        };
+
+        var stopProductCarousel = function () {
+            if (productTimer) {
+                window.clearInterval(productTimer);
+                productTimer = null;
+            }
+        };
+
+        var startProductCarousel = function () {
+            stopProductCarousel();
+            if (!reduceMotion && !document.hidden) {
+                productTimer = window.setInterval(function () {
+                    showProductSlide(productIndex + 1, false);
+                }, 5200);
+            }
+        };
+
+        Array.prototype.forEach.call(productTabs, function (tab, index) {
+            tab.addEventListener('click', function () {
+                showProductSlide(index, false);
+                startProductCarousel();
+            });
+            tab.addEventListener('keydown', function (event) {
+                if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+                    event.preventDefault();
+                    var direction = event.key === 'ArrowRight' ? 1 : -1;
+                    showProductSlide(productIndex + direction, true);
+                }
+            });
+        });
+
+        productCarousel.addEventListener('mouseenter', stopProductCarousel);
+        productCarousel.addEventListener('mouseleave', startProductCarousel);
+        productCarousel.addEventListener('focusin', stopProductCarousel);
+        productCarousel.addEventListener('focusout', function (event) {
+            if (!productCarousel.contains(event.relatedTarget)) {
+                startProductCarousel();
+            }
+        });
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                stopProductCarousel();
+            } else {
+                startProductCarousel();
+            }
+        });
+        showProductSlide(0, false);
+        startProductCarousel();
+    }
+
     var forms = document.querySelectorAll('[data-lead-form]');
     Array.prototype.forEach.call(forms, function (form) {
         form.addEventListener('submit', function (event) {
