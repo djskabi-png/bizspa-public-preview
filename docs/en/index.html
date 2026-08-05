@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>BIZonline | Management software for bookings, schedules and clients</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"BIZonline | Management software for bookings, schedules and clients","description":"BIZonline connects bookings, schedules, clients, teams, payments and reporting in a workspace shaped around the way your business operates.","url":"https://bizonline.co.il/en","inLanguage":"en"}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=22">
+    <link rel="stylesheet" href="/assets/site.css?v=23">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -117,23 +117,72 @@
                 <span>Reports</span>
             </div>
         </div>
-        <div class="product-scene" aria-label="BIZ demonstration environment screen">
-            <div class="scene-window">
-                <div class="scene-top"><i></i><i></i><i></i><b>BIZonline</b></div>
-                <div class="biz-product-demo" role="img" aria-label="Rich BIZonline treatment calendar in a demonstration environment with sample data">
-                    <div class="biz-demo-toolbar"><span class="biz-demo-badge">Demo environment</span><strong>Treatment calendar</strong><span>Today, August 5</span></div>
-                    <div class="biz-demo-days" aria-hidden="true"><span>09:00</span><span>10:00</span><span>11:00</span><span>12:00</span><span>13:00</span><span>14:00</span></div>
-                    <div class="biz-demo-schedule" aria-hidden="true">
-                        <strong>Yael</strong><span class="demo-appointment wide">Swedish massage, Noa</span><span class="demo-appointment">Hot stones</span>
-                        <strong>Daniel</strong><span class="demo-appointment">Reflexology</span><span class="demo-appointment wide">Couples massage</span>
-                        <strong>Noa</strong><span class="demo-appointment wide">Facial treatment, Maya</span><span class="demo-appointment">Deep tissue</span>
-                        <strong>Ron</strong><span class="demo-appointment">Spa package</span><span class="demo-appointment wide">Swedish massage, Shira</span>
-                    </div>
-                    <div class="biz-demo-summary" aria-hidden="true"><span><b>18</b> treatments today</span><span><b>4</b> active therapists</span><span><b>3</b> rooms available</span></div>
-                </div>
-                <div class="scene-caption">
-                    <div><small>Localized demo</small><strong>Active bookings in one place</strong></div>
-                    <span>Names and figures are sample data</span>
+        <div class="product-scene product-carousel" data-product-carousel aria-roledescription="carousel" aria-label="Four BIZonline work environments">
+            <div class="product-carousel-tabs" role="tablist" aria-label="Choose a work environment">
+                <button type="button" class="is-active" role="tab" aria-selected="true" data-product-tab="0">Spa</button>
+                <button type="button" role="tab" aria-selected="false" data-product-tab="1">Clinics</button>
+                <button type="button" role="tab" aria-selected="false" data-product-tab="2">Hospitality</button>
+                <button type="button" role="tab" aria-selected="false" data-product-tab="3">Venues</button>
+            </div>
+            <div class="scene-window product-carousel-window">
+                <div class="scene-top"><i></i><i></i><i></i><b>BIZonline</b><span data-product-counter>01 / 04</span></div>
+                <div class="product-carousel-stage">
+                    <article class="hero-product-slide is-active" data-product-slide="0" aria-hidden="false">
+                        <div class="biz-product-demo" role="img" aria-label="BIZonline treatment calendar with sample data">
+                            <div class="biz-demo-toolbar"><span class="biz-demo-badge">Demo environment</span><strong>Treatment calendar</strong><span>Today, August 5</span></div>
+                            <div class="biz-demo-days" aria-hidden="true"><span>09:00</span><span>10:00</span><span>11:00</span><span>12:00</span><span>13:00</span><span>14:00</span></div>
+                            <div class="biz-demo-schedule" aria-hidden="true">
+                                <strong>Yael</strong><span class="demo-appointment wide">Swedish massage, Noa</span><span class="demo-appointment">Hot stones</span>
+                                <strong>Daniel</strong><span class="demo-appointment">Reflexology</span><span class="demo-appointment wide">Couples massage</span>
+                                <strong>Noa</strong><span class="demo-appointment wide">Facial treatment, Maya</span><span class="demo-appointment">Deep tissue</span>
+                                <strong>Ron</strong><span class="demo-appointment">Spa package</span><span class="demo-appointment wide">Swedish massage</span>
+                            </div>
+                            <div class="biz-demo-summary" aria-hidden="true"><span><b>18</b> treatments today</span><span><b>4</b> active therapists</span><span><b>3</b> rooms available</span></div>
+                        </div>
+                        <a class="scene-caption" href="/en/spa-management-software"><div><small>Spa operations</small><strong>Treatments, therapists and rooms in one view</strong></div><span>Explore the solution</span></a>
+                    </article>
+
+                    <article class="hero-product-slide" data-product-slide="1" aria-hidden="true">
+                        <div class="biz-product-demo biz-clinic-demo" role="img" aria-label="BIZonline clinic management with sample data">
+                            <div class="biz-demo-toolbar"><span class="biz-demo-badge">Demo environment</span><strong>Clinic workday</strong><span>12 appointments</span></div>
+                            <div class="demo-kpi-row" aria-hidden="true"><span><b>08</b>in care</span><span><b>03</b>forms to sign</span><span><b>05</b>active plans</span></div>
+                            <div class="clinic-demo-list" aria-hidden="true">
+                                <div><time>09:00</time><strong>Aesthetic consultation</strong><span>Dr. Levi, room 2</span><b>Confirmed</b></div>
+                                <div><time>10:15</time><strong>Physiotherapy, session 4</strong><span>Roni Cohen, room 1</span><b>In progress</b></div>
+                                <div><time>11:30</time><strong>Complementary care</strong><span>Maya Israeli, room 3</span><b>Waiting</b></div>
+                                <div><time>13:00</time><strong>Care plan follow-up</strong><span>Dana Raz, online</span><b>Form sent</b></div>
+                            </div>
+                        </div>
+                        <a class="scene-caption" href="/en/clinic-management-software"><div><small>Clinic operations</small><strong>Appointments, care plans, forms and follow-up</strong></div><span>Explore the solution</span></a>
+                    </article>
+
+                    <article class="hero-product-slide" data-product-slide="2" aria-hidden="true">
+                        <div class="biz-product-demo biz-hospitality-demo" role="img" aria-label="BIZonline hospitality occupancy with sample data">
+                            <div class="biz-demo-toolbar"><span class="biz-demo-badge">Demo environment</span><strong>Occupancy and bookings</strong><span>August</span></div>
+                            <div class="hospitality-channel-row" aria-hidden="true"><span>Booking.com</span><span>Airbnb</span><span>vii.co.il</span><span>Direct site</span></div>
+                            <div class="occupancy-board" aria-hidden="true">
+                                <div class="occupancy-days"><b>Unit</b><span>Thu 6</span><span>Fri 7</span><span>Sat 8</span><span>Sun 9</span></div>
+                                <div><b>Vine Suite</b><span class="is-booked source-booking">Booking.com</span><span class="is-booked source-booking"></span><span></span><span></span></div>
+                                <div><b>View Cabin</b><span></span><span class="is-booked source-airbnb">Airbnb</span><span class="is-booked source-airbnb"></span><span></span></div>
+                                <div><b>Pine Villa</b><span class="is-booked source-direct">Direct</span><span class="is-booked source-direct"></span><span class="is-booked source-direct"></span><span></span></div>
+                                <div><b>Cypress Unit</b><span></span><span></span><span class="is-booked source-vii">Vii</span><span class="is-booked source-vii"></span></div>
+                            </div>
+                        </div>
+                        <a class="scene-caption" href="/en/hospitality-management-software"><div><small>Hospitality operations</small><strong>Every booking channel in one occupancy view</strong></div><span>Explore the solution</span></a>
+                    </article>
+
+                    <article class="hero-product-slide" data-product-slide="3" aria-hidden="true">
+                        <div class="biz-product-demo biz-venue-demo" role="img" aria-label="BIZonline venue management with sample data">
+                            <div class="biz-demo-toolbar"><span class="biz-demo-badge">Demo environment</span><strong>Upcoming events</strong><span>Next 7 days</span></div>
+                            <div class="venue-demo-pipeline" aria-hidden="true"><span><b>08</b>new inquiries</span><i></i><span><b>05</b>proposals sent</span><i></i><span><b>03</b>events confirmed</span></div>
+                            <div class="venue-demo-list" aria-hidden="true">
+                                <div><time>Thursday 19:30</time><strong>Company event, 85 guests</strong><span>Main Loft</span><b>Deposit paid</b></div>
+                                <div><time>Friday 11:00</time><strong>Birthday, 40 guests</strong><span>Rooftop venue</span><b>Prep tasks</b></div>
+                                <div><time>Sunday 18:00</time><strong>Private event, 120 guests</strong><span>North Hall</span><b>Signed</b></div>
+                            </div>
+                        </div>
+                        <a class="scene-caption" href="/en/venue-management-software"><div><small>Venue operations</small><strong>From lead to proposal, signature, deposit and delivery</strong></div><span>Explore the solution</span></a>
+                    </article>
                 </div>
             </div>
         </div>
@@ -387,6 +436,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=4" defer></script>
+<script src="/assets/site.js?v=5" defer></script>
 </body>
 </html>
