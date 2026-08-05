@@ -98,9 +98,10 @@
         var productTabs = productCarousel.querySelectorAll('[data-product-tab]');
         var productSlides = productCarousel.querySelectorAll('[data-product-slide]');
         var productCounter = productCarousel.querySelector('[data-product-counter]');
+        var productToggle = productCarousel.querySelector('[data-product-toggle]');
         var productIndex = 0;
         var productTimer = null;
-        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var productManualPause = false;
 
         var showProductSlide = function (nextIndex, moveFocus) {
             productIndex = (nextIndex + productSlides.length) % productSlides.length;
@@ -124,6 +125,7 @@
         };
 
         var stopProductCarousel = function () {
+            productCarousel.classList.add('is-paused');
             if (productTimer) {
                 window.clearInterval(productTimer);
                 productTimer = null;
@@ -132,11 +134,20 @@
 
         var startProductCarousel = function () {
             stopProductCarousel();
-            if (!reduceMotion && !document.hidden) {
+            if (!productManualPause && !document.hidden) {
+                productCarousel.classList.remove('is-paused');
                 productTimer = window.setInterval(function () {
                     showProductSlide(productIndex + 1, false);
-                }, 5200);
+                }, 5000);
             }
+        };
+
+        var updateProductToggle = function () {
+            if (!productToggle) {
+                return;
+            }
+            productToggle.setAttribute('aria-pressed', productManualPause ? 'true' : 'false');
+            productToggle.textContent = productManualPause ? productToggle.getAttribute('data-play-label') : productToggle.getAttribute('data-pause-label');
         };
 
         Array.prototype.forEach.call(productTabs, function (tab, index) {
@@ -153,8 +164,18 @@
             });
         });
 
-        productCarousel.addEventListener('mouseenter', stopProductCarousel);
-        productCarousel.addEventListener('mouseleave', startProductCarousel);
+        if (productToggle) {
+            productToggle.addEventListener('click', function () {
+                productManualPause = !productManualPause;
+                if (productManualPause) {
+                    stopProductCarousel();
+                } else {
+                    startProductCarousel();
+                }
+                updateProductToggle();
+            });
+        }
+
         productCarousel.addEventListener('focusin', stopProductCarousel);
         productCarousel.addEventListener('focusout', function (event) {
             if (!productCarousel.contains(event.relatedTarget)) {
@@ -169,6 +190,7 @@
             }
         });
         showProductSlide(0, false);
+        updateProductToggle();
         startProductCarousel();
     }
 
