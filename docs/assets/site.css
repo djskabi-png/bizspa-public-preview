@@ -327,6 +327,26 @@ h3 { font-size: 1.45rem; }
 .problem-grid { display: grid; grid-template-columns: .3fr 1.7fr; gap: 50px; align-items: start; }
 .problem-grid .eyebrow { color: #ff9ba0; }
 .problem-grid h2 { max-width: 940px; margin: 0; font-size: clamp(2rem, 4.5vw, 3.8rem); }
+.niche-product-section { overflow: hidden; padding: 125px 0; background: radial-gradient(circle at 12% 18%, rgba(207,235,226,.8), transparent 30%), var(--cream); }
+.niche-product-layout { display: grid; grid-template-columns: minmax(0,.9fr) minmax(540px,1.1fr); gap: 90px; align-items: center; }
+.niche-product-copy h2 { max-width: 700px; margin-bottom: 24px; font-size: clamp(2.35rem,4.5vw,4.45rem); line-height: 1.03; }
+.niche-product-intro { max-width: 680px; margin-bottom: 34px; color: var(--muted); font-size: 1.08rem; line-height: 1.85; }
+.niche-product-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.niche-product-benefits article { min-height: 126px; padding: 20px; border: 1px solid rgba(18,60,64,.13); border-radius: 19px; background: rgba(255,255,255,.76); }
+.niche-product-benefits b { display: block; margin-bottom: 12px; color: var(--coral-dark); font-size: .73rem; }
+.niche-product-benefits p { margin: 0; font-weight: 750; line-height: 1.45; }
+.product-source-note { max-width: 650px; margin: 23px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.65; }
+.niche-product-gallery { min-height: 700px; display: flex; justify-content: center; align-items: center; gap: 24px; }
+.niche-product-phone { position: relative; width: min(300px,42%); margin: 0; padding: 17px 13px 15px; border: 1px solid rgba(18,60,64,.13); border-radius: 42px; background: #fff; box-shadow: 0 38px 80px rgba(18,60,64,.17); }
+.niche-product-phone-1 { transform: translateY(34px) rotate(-3deg); }
+.niche-product-phone-2 { transform: translateY(-28px) rotate(3deg); }
+[dir="rtl"] .niche-product-phone-1 { transform: translateY(34px) rotate(3deg); }
+[dir="rtl"] .niche-product-phone-2 { transform: translateY(-28px) rotate(-3deg); }
+.phone-speaker { width: 56px; height: 5px; margin: 0 auto 12px; border-radius: 999px; background: #d7e1de; }
+.niche-product-phone img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 8; object-fit: cover; object-position: top center; border-radius: 27px; background: #eef3f1; }
+.niche-product-phone figcaption { display: grid; gap: 5px; min-height: 104px; padding: 17px 9px 3px; }
+.niche-product-phone figcaption strong { color: var(--ink); font-size: .95rem; }
+.niche-product-phone figcaption span { color: var(--muted); font-size: .72rem; line-height: 1.5; }
 .niche-workflow { padding: 115px 0; background: #fff; }
 .niche-steps { display: grid; grid-template-columns: repeat(5, 1fr); }
 .niche-steps article { position: relative; min-height: 215px; padding: 20px 20px 20px 0; border-top: 1px solid var(--line); }
@@ -576,7 +596,8 @@ h3 { font-size: 1.45rem; }
     .audience-grid { grid-template-columns: repeat(2, 1fr); }
     .world-product-media { grid-template-columns: 1fr; }
     .world-process { grid-template-columns: repeat(2, 1fr); }
-    .niche-hero-grid, .capability-grid, .faq-grid, .niche-readiness-grid { grid-template-columns: 1fr; }
+    .niche-hero-grid, .niche-product-layout, .capability-grid, .faq-grid, .niche-readiness-grid { grid-template-columns: 1fr; }
+    .niche-product-layout { gap: 45px; }
     .niche-steps { grid-template-columns: repeat(3, 1fr); }
     .related-capabilities-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .about-method-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -662,6 +683,14 @@ h3 { font-size: 1.45rem; }
     .breadcrumbs { margin-bottom: 34px; }
     .problem-section { padding: 78px 0; }
     .problem-grid { grid-template-columns: 1fr; gap: 10px; }
+    .niche-product-section { padding: 82px 0; }
+    .niche-product-benefits { grid-template-columns: 1fr; }
+    .niche-product-benefits article { min-height: auto; }
+    .niche-product-gallery { min-height: 520px; gap: 10px; }
+    .niche-product-phone { width: 48%; padding: 10px 8px 11px; border-radius: 27px; }
+    .niche-product-phone img { border-radius: 20px; }
+    .niche-product-phone figcaption { min-height: 126px; padding: 13px 5px 2px; }
+    .niche-product-phone figcaption span { font-size: .67rem; }
     .niche-workflow, .faq-section, .niche-readiness-section, .related-capabilities-section, .related-niches-section { padding: 80px 0; }
     .niche-readiness-grid { gap: 42px; }
     .related-capabilities-grid, .related-niches-grid { grid-template-columns: 1fr; }
