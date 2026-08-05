@@ -7,7 +7,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
 $publicRoot = Join-Path $projectRoot 'docs'
-$customDomain = 'bizspa.spaplus.co'
+$customDomain = 'bizonline.spaplus.co'
 if ($SourceProject -eq '') {
     $SourceProject = Join-Path (Split-Path -Parent $projectRoot) 'bizspa-site-rebuild'
 }
