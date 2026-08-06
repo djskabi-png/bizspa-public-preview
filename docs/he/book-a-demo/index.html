@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>בואו נראה איך המערכת מתאימה לעסק שלכם | BIZonline</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"בואו נראה איך המערכת מתאימה לעסק שלכם | BIZonline","description":"ספרו לנו בקצרה איך העסק עובד ומה תרצו לשפר. נחזור אליכם כדי לתאם הדגמה ממוקדת.","url":"https://bizonline.co.il/he/book-a-demo","inLanguage":"he"}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=39">
+    <link rel="stylesheet" href="/assets/site.css?v=40">
 </head>
 <body>
 <a class="skip-link" href="#main">דילוג לתוכן</a>
@@ -103,19 +103,32 @@
                     <span><b>3</b>אישור</span>
                 </div>
                 <form class="demo-booking-form" data-demo-booking-form novalidate>
-                    <input type="hidden" name="csrf" value="bd9d3e19a0a8fff38d770f93c0142dd66d3a32214696d7cf16303409a6cc5c7f">
+                    <input type="hidden" name="csrf" value="5c76d71c36152a404acd054ce946f867a89cf5d854aa7d5b560362668b6d37e6">
+                    <div class="form-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
                     <input type="hidden" name="locale" value="he">
                     <input type="hidden" name="instructor_id" value="">
                     <input type="hidden" name="starts_at" value="">
+                    <input type="hidden" name="world_group" value="">
                     <input type="hidden" name="visitor_token" value="">
                     <input type="hidden" name="session_token" value="">
                     <div class="demo-booking-step is-active" data-booking-step="1">
-                        <div class="demo-booking-step-heading"><div><span>פגישה אונליין</span><h2>בחרו מדריכה ומועד שנוח לכם</h2></div><p data-demo-availability-copy>הזמינות נבדקת בזמן אמת מול היומן.</p></div>
-                        <div class="demo-instructors" data-demo-instructors aria-live="polite"></div>
-                        <div class="demo-date-strip" data-demo-dates></div>
-                        <div class="demo-time-grid" data-demo-times></div>
-                        <p class="form-status" data-demo-availability-status aria-live="polite">טוענים את המועדים הפנויים...</p>
-                        <button class="button" type="button" data-booking-next disabled>המשך לפרטים</button>
+                        <div class="demo-booking-step-heading"><div><span>פגישה אונליין</span><h2>בואו נתאים לכם את ההדרכה הנכונה</h2></div><p data-demo-availability-copy>נציג רק את המדריכות והמועדים שמתאימים לעולם העסק שלכם.</p></div>
+                        <div class="demo-world-picker" data-demo-world-picker>
+                            <div class="demo-world-picker-copy"><span>בחירה חכמה</span><h3>איזה עסק תרצו לנהל?</h3><p>הבחירה תקבע איזה צוות הדרכה ואילו מועדים יוצגו לכם.</p></div>
+                            <div class="demo-world-options" role="group" aria-label="בחירת תחום העסק">
+                                <button type="button" data-demo-world="care" aria-pressed="false"><span aria-hidden="true">✦</span><strong>ספא וקליניקות</strong><small>ספא, מרכז טיפולים, קליניקה ומקצועות הבריאות</small></button>
+                                <button type="button" data-demo-world="hospitality" aria-pressed="false"><span aria-hidden="true">⌂</span><strong>אירוח, נופש ואירועים</strong><small>צימרים, וילות, מלונות, לופטים ומתחמי אירועים</small></button>
+                            </div>
+                            <p class="demo-world-context" data-demo-world-context hidden></p>
+                        </div>
+                        <div class="demo-team-content" data-demo-team-content hidden>
+                            <div class="demo-team-heading"><div><span>הצוות שמתאים לכם</span><h3>בחרו מדריכה ומועד</h3></div><button type="button" data-demo-world-change>שינוי תחום</button></div>
+                            <div class="demo-instructors" data-demo-instructors aria-live="polite"></div>
+                            <div class="demo-date-strip" data-demo-dates></div>
+                            <div class="demo-time-grid" data-demo-times></div>
+                            <p class="form-status" data-demo-availability-status aria-live="polite"></p>
+                            <button class="button" type="button" data-booking-next disabled>המשך לפרטים</button>
+                        </div>
                     </div>
                     <div class="demo-booking-step" data-booking-step="2" hidden>
                         <div class="demo-booking-step-heading"><div><span>כמה פרטים לפני שקובעים</span><h2>כדי שנגיע להדגמה מוכנים</h2></div><div class="demo-selected-slot" data-demo-selected-slot></div></div>
@@ -161,6 +174,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=17" defer></script>
+<script src="/assets/site.js?v=18" defer></script>
 </body>
 </html>

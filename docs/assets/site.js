@@ -260,6 +260,7 @@
         var demoHebrew = localeField && localeField.value === 'he';
         var instructorField = demoForm.querySelector('input[name="instructor_id"]');
         var startsAtField = demoForm.querySelector('input[name="starts_at"]');
+        var worldGroupField = demoForm.querySelector('input[name="world_group"]');
         var visitorField = demoForm.querySelector('input[name="visitor_token"]');
         var sessionField = demoForm.querySelector('input[name="session_token"]');
         var instructorBox = demoBooking.querySelector('[data-demo-instructors]');
@@ -270,11 +271,19 @@
         var nextButton = demoBooking.querySelector('[data-booking-next]');
         var backButton = demoBooking.querySelector('[data-booking-back]');
         var bookingStatus = demoBooking.querySelector('[data-demo-booking-status]');
+        var worldPicker = demoBooking.querySelector('[data-demo-world-picker]');
+        var worldButtons = demoBooking.querySelectorAll('[data-demo-world]');
+        var worldContext = demoBooking.querySelector('[data-demo-world-context]');
+        var worldChange = demoBooking.querySelector('[data-demo-world-change]');
+        var teamContent = demoBooking.querySelector('[data-demo-team-content]');
+        var businessTypeSelect = demoForm.querySelector('select[name="business_type"]');
         var enteredAt = new Date().toISOString();
         var selectedInstructor = null;
         var selectedDate = '';
         var selectedSlot = null;
         var instructors = [];
+        var selectedWorldGroup = '';
+        var availabilityRequest = 0;
 
         var randomToken = function () {
             if (window.crypto && typeof window.crypto.randomUUID === 'function') {
@@ -445,51 +454,128 @@
                 return slots;
             };
             return [
-                { id: 900, name: demoHebrew ? 'כל מדריכה זמינה' : 'Any available instructor', duration: 45, slots: createSlots(['09:30', '12:00', '15:30']) },
-                { id: 901, name: demoHebrew ? 'שולי' : 'Shuli', duration: 45, slots: createSlots(['09:00', '11:00', '14:00']) },
-                { id: 902, name: demoHebrew ? 'רבקה' : 'Rivka', duration: 45, slots: createSlots(['10:00', '12:30', '16:00']) },
-                { id: 903, name: demoHebrew ? 'לירן' : 'Liran', duration: 45, slots: createSlots(['09:30', '13:00', '16:30']) },
-                { id: 904, name: demoHebrew ? 'שירן' : 'Shiran', duration: 45, slots: createSlots(['10:30', '13:30', '17:00']) },
-                { id: 905, name: demoHebrew ? 'ענת' : 'Anat', duration: 45, slots: createSlots(['09:00', '12:00', '15:00']) },
-                { id: 906, name: demoHebrew ? 'קארין' : 'Karin', duration: 45, slots: createSlots(['11:00', '14:00', '17:30']) }
+                { id: 901, name: demoHebrew ? 'שולי' : 'Shuli', duration: 45, worlds: ['care'], slots: createSlots(['09:00', '11:00', '14:00']) },
+                { id: 902, name: demoHebrew ? 'רבקה' : 'Rivka', duration: 45, worlds: ['care'], slots: createSlots(['10:00', '12:30', '16:00']) },
+                { id: 903, name: demoHebrew ? 'לירן' : 'Liran', duration: 45, worlds: ['hospitality'], slots: createSlots(['09:30', '13:00', '16:30']) },
+                { id: 904, name: demoHebrew ? 'שירן' : 'Shiran', duration: 45, worlds: ['hospitality'], slots: createSlots(['10:30', '13:30', '17:00']) },
+                { id: 905, name: demoHebrew ? 'ענת' : 'Anat', duration: 45, worlds: ['hospitality'], slots: createSlots(['09:00', '12:00', '15:00']) },
+                { id: 906, name: demoHebrew ? 'קארין' : 'Karin', duration: 45, worlds: ['hospitality'], slots: createSlots(['11:00', '14:00', '17:30']) }
             ];
         };
         var staticBookingHosts = ['127.0.0.1', 'localhost', 'bizonline.spaplus.co'];
         var isStaticPreview = staticBookingHosts.indexOf(window.location.hostname) !== -1 || /\.github\.io$/i.test(window.location.hostname);
 
-        fetch('/api/demo-availability.php?locale=' + encodeURIComponent(demoHebrew ? 'he' : 'en'))
-            .then(function (response) {
-                var contentType = response.headers.get('content-type') || '';
-                if (contentType.indexOf('application/json') === -1) {
-                    throw new Error('NON_JSON_RESPONSE');
-                }
-                return response.json().then(function (payload) { return { ok: response.ok, payload: payload }; });
-            })
-            .then(function (result) {
-                if (!result.ok || !result.payload.ok) throw new Error(result.payload.message || 'Availability failed');
-                instructors = result.payload.instructors || [];
-                if (!instructors.length) throw new Error(demoHebrew ? 'עדיין לא הוגדרו מועדים פנויים.' : 'No available times have been configured yet.');
-                availabilityStatus.textContent = '';
-                renderInstructors();
-            })
-            .catch(function (error) {
-                if (isStaticPreview) {
-                    instructors = buildPreviewInstructors();
-                    if (availabilityCopy) {
-                        availabilityCopy.textContent = demoHebrew
-                            ? 'בחרו מדריכה ומועד מתוך לוח ההמחשה. חיבור ליומנים האמיתיים יופעל לאחר הגדרת חשבונות הצוות.'
-                            : 'Choose an instructor and a time from the demonstration calendar. Live calendar connections will be activated after the team accounts are configured.';
-                    }
-                    availabilityStatus.textContent = demoHebrew
-                        ? 'בחרו את מדריכת התחום המתאימה. המועדים המוצגים כעת מיועדים להמחשת תהליך הקביעה.'
-                        : 'Choose the relevant field instructor. The times shown are currently for demonstrating the booking flow.';
-                    renderInstructors();
-                    return;
-                }
-                availabilityStatus.textContent = error.message === 'NON_JSON_RESPONSE'
-                    ? (demoHebrew ? 'לא ניתן לטעון כרגע את המועדים. נסו שוב בעוד מספר דקות.' : 'Available times cannot be loaded right now. Please try again in a few minutes.')
-                    : error.message;
+        var worldLabels = {
+            care: demoHebrew ? 'ספא וקליניקות' : 'Spa and clinics',
+            hospitality: demoHebrew ? 'אירוח, נופש ואירועים' : 'Hospitality, vacation and events'
+        };
+        var worldBusinessTypes = {
+            care: ['spa', 'clinic'],
+            hospitality: ['hospitality', 'venue']
+        };
+        var resetSelection = function () {
+            selectedInstructor = null;
+            selectedDate = '';
+            selectedSlot = null;
+            instructorField.value = '';
+            startsAtField.value = '';
+            nextButton.disabled = true;
+            instructorBox.innerHTML = '';
+            dateBox.innerHTML = '';
+            timeBox.innerHTML = '';
+        };
+        var limitBusinessTypes = function (group) {
+            var allowed = worldBusinessTypes[group] || [];
+            Array.prototype.forEach.call(businessTypeSelect.options, function (option) {
+                var visible = option.value === '' || allowed.indexOf(option.value) !== -1;
+                option.hidden = !visible;
+                option.disabled = !visible;
             });
+            if (allowed.indexOf(businessTypeSelect.value) === -1) {
+                businessTypeSelect.value = '';
+            }
+        };
+        var detectWorldGroup = function () {
+            var requested = new URLSearchParams(window.location.search).get('world') || '';
+            if (/^(care|spa|clinic|wellness)$/i.test(requested)) return 'care';
+            if (/^(hospitality|accommodation|vacation|venue|event|events)$/i.test(requested)) return 'hospitality';
+            if (!document.referrer) return '';
+            try {
+                var referrer = new URL(document.referrer);
+                if (referrer.origin !== window.location.origin) return '';
+                var path = referrer.pathname.toLowerCase();
+                if (/(spa|clinic|wellness|hammam|massage|treatment|therapist|practitioner|physio)/.test(path)) return 'care';
+                if (/(hospitality|accommodation|hotel|guest|villa|vacation|venue|event|loft|glamping|resort|retreat|zimmer)/.test(path)) return 'hospitality';
+            } catch (ignored) {}
+            return '';
+        };
+        var loadAvailability = function (group) {
+            var requestNumber = ++availabilityRequest;
+            availabilityStatus.textContent = demoHebrew ? 'טוענים את המועדים של הצוות המתאים...' : 'Loading times for the matching team...';
+            fetch('/api/demo-availability.php?locale=' + encodeURIComponent(demoHebrew ? 'he' : 'en') + '&world_group=' + encodeURIComponent(group))
+                .then(function (response) {
+                    var contentType = response.headers.get('content-type') || '';
+                    if (contentType.indexOf('application/json') === -1) throw new Error('NON_JSON_RESPONSE');
+                    return response.json().then(function (payload) { return { ok: response.ok, payload: payload }; });
+                })
+                .then(function (result) {
+                    if (requestNumber !== availabilityRequest || selectedWorldGroup !== group) return;
+                    if (!result.ok || !result.payload.ok) throw new Error(result.payload.message || 'Availability failed');
+                    instructors = result.payload.instructors || [];
+                    if (!instructors.length) throw new Error(demoHebrew ? 'עדיין לא הוגדרו מועדים פנויים לצוות הזה.' : 'No available times have been configured for this team yet.');
+                    availabilityStatus.textContent = '';
+                    renderInstructors();
+                })
+                .catch(function (error) {
+                    if (requestNumber !== availabilityRequest || selectedWorldGroup !== group) return;
+                    if (isStaticPreview) {
+                        instructors = buildPreviewInstructors().filter(function (instructor) { return instructor.worlds.indexOf(group) !== -1; });
+                        if (availabilityCopy) {
+                            availabilityCopy.textContent = demoHebrew
+                                ? 'בחרו מדריכה ומועד מתוך לוח ההמחשה. היומנים החיים יופעלו לאחר חיבור חשבונות הצוות.'
+                                : 'Choose an instructor and time from the demonstration calendar. Live calendars activate after the team accounts are connected.';
+                        }
+                        availabilityStatus.textContent = demoHebrew
+                            ? 'מוצג רק צוות ההדרכה של התחום שבחרתם. המועדים כעת הם להמחשה.'
+                            : 'Only the training team for your selected field is shown. Times are currently illustrative.';
+                        renderInstructors();
+                        return;
+                    }
+                    availabilityStatus.textContent = error.message === 'NON_JSON_RESPONSE'
+                        ? (demoHebrew ? 'לא ניתן לטעון כרגע את המועדים. נסו שוב בעוד מספר דקות.' : 'Available times cannot be loaded right now. Please try again in a few minutes.')
+                        : error.message;
+                });
+        };
+        var selectWorldGroup = function (group, inferred) {
+            if (!worldBusinessTypes[group]) return;
+            selectedWorldGroup = group;
+            worldGroupField.value = group;
+            resetSelection();
+            limitBusinessTypes(group);
+            Array.prototype.forEach.call(worldButtons, function (button) {
+                button.setAttribute('aria-pressed', button.getAttribute('data-demo-world') === group ? 'true' : 'false');
+            });
+            teamContent.hidden = false;
+            worldContext.hidden = false;
+            worldContext.textContent = inferred
+                ? (demoHebrew ? 'התאמנו את המסלול לפי העמוד שממנו הגעתם: ' + worldLabels[group] + '. אפשר לשנות את התחום בכל רגע.' : 'Matched from the page you came from: ' + worldLabels[group] + '. You can change the field at any time.')
+                : (demoHebrew ? 'נבחר התחום: ' + worldLabels[group] + '. כעת מוצג רק צוות ההדרכה המתאים.' : 'Selected field: ' + worldLabels[group] + '. Only the matching training team is now shown.');
+            loadAvailability(group);
+        };
+        Array.prototype.forEach.call(worldButtons, function (button) {
+            button.addEventListener('click', function () { selectWorldGroup(button.getAttribute('data-demo-world'), false); });
+        });
+        worldChange.addEventListener('click', function () {
+            teamContent.hidden = true;
+            worldContext.hidden = true;
+            selectedWorldGroup = '';
+            worldGroupField.value = '';
+            resetSelection();
+            Array.prototype.forEach.call(worldButtons, function (button) { button.setAttribute('aria-pressed', 'false'); });
+            worldPicker.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+        });
+        var inferredWorldGroup = detectWorldGroup();
+        if (inferredWorldGroup) selectWorldGroup(inferredWorldGroup, true);
 
         nextButton.addEventListener('click', function () {
             if (!selectedSlot || !selectedInstructor) return;

@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>See how BIZonline can fit your operation | BIZonline</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"See how BIZonline can fit your operation | BIZonline","description":"Tell us how your business operates and what you would like to improve. We will follow up to arrange a focused demo.","url":"https://bizonline.co.il/en/book-a-demo","inLanguage":"en"}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=39">
+    <link rel="stylesheet" href="/assets/site.css?v=40">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -103,19 +103,32 @@
                     <span><b>3</b>Confirm</span>
                 </div>
                 <form class="demo-booking-form" data-demo-booking-form novalidate>
-                    <input type="hidden" name="csrf" value="a78806c057e6ed9d3498cb5ca443d9b108e557a53a6bca1e8e4891e7142a85d8">
+                    <input type="hidden" name="csrf" value="faba96d668c74bb5927dc17a4be4a69b2885cd069f09f235c3aaed3467d2555c">
+                    <div class="form-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
                     <input type="hidden" name="locale" value="en">
                     <input type="hidden" name="instructor_id" value="">
                     <input type="hidden" name="starts_at" value="">
+                    <input type="hidden" name="world_group" value="">
                     <input type="hidden" name="visitor_token" value="">
                     <input type="hidden" name="session_token" value="">
                     <div class="demo-booking-step is-active" data-booking-step="1">
-                        <div class="demo-booking-step-heading"><div><span>Online meeting</span><h2>Choose an instructor and a convenient time</h2></div><p data-demo-availability-copy>Availability is checked against the calendar in real time.</p></div>
-                        <div class="demo-instructors" data-demo-instructors aria-live="polite"></div>
-                        <div class="demo-date-strip" data-demo-dates></div>
-                        <div class="demo-time-grid" data-demo-times></div>
-                        <p class="form-status" data-demo-availability-status aria-live="polite">Loading available times...</p>
-                        <button class="button" type="button" data-booking-next disabled>Continue to details</button>
+                        <div class="demo-booking-step-heading"><div><span>Online meeting</span><h2>Let us match you with the right training team</h2></div><p data-demo-availability-copy>We only show instructors and times that match your business field.</p></div>
+                        <div class="demo-world-picker" data-demo-world-picker>
+                            <div class="demo-world-picker-copy"><span>Smart routing</span><h3>What kind of business do you run?</h3><p>Your choice determines which training team and available times are shown.</p></div>
+                            <div class="demo-world-options" role="group" aria-label="Choose a business field">
+                                <button type="button" data-demo-world="care" aria-pressed="false"><span aria-hidden="true">✦</span><strong>Spa and clinics</strong><small>Spa, treatment center, clinic and wellness professionals</small></button>
+                                <button type="button" data-demo-world="hospitality" aria-pressed="false"><span aria-hidden="true">⌂</span><strong>Hospitality, vacation and events</strong><small>Guest houses, villas, hotels and event venues</small></button>
+                            </div>
+                            <p class="demo-world-context" data-demo-world-context hidden></p>
+                        </div>
+                        <div class="demo-team-content" data-demo-team-content hidden>
+                            <div class="demo-team-heading"><div><span>Your matching team</span><h3>Choose an instructor and time</h3></div><button type="button" data-demo-world-change>Change field</button></div>
+                            <div class="demo-instructors" data-demo-instructors aria-live="polite"></div>
+                            <div class="demo-date-strip" data-demo-dates></div>
+                            <div class="demo-time-grid" data-demo-times></div>
+                            <p class="form-status" data-demo-availability-status aria-live="polite"></p>
+                            <button class="button" type="button" data-booking-next disabled>Continue to details</button>
+                        </div>
                     </div>
                     <div class="demo-booking-step" data-booking-step="2" hidden>
                         <div class="demo-booking-step-heading"><div><span>A few details before booking</span><h2>Help us prepare for the demo</h2></div><div class="demo-selected-slot" data-demo-selected-slot></div></div>
@@ -161,6 +174,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=17" defer></script>
+<script src="/assets/site.js?v=18" defer></script>
 </body>
 </html>
