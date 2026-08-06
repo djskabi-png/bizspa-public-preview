@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Packages, gift cards and memberships connected to the schedule | BIZonline</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Packages, gift cards and memberships connected to the schedule | BIZonline","description":"Manage products that combine services, visits or usage rights over time.","url":"https://bizonline.co.il/en/packages-and-gift-cards","inLanguage":"en"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How are packages, series and memberships different?","acceptedAnswer":{"@type":"Answer","text":"Packages combine services, series track a number of sessions, and memberships define recurring rights."}},{"@type":"Question","name":"Can staff check the balance during booking?","acceptedAnswer":{"@type":"Answer","text":"The intended flow connects client rights to booking and redemption."}},{"@type":"Question","name":"Can validity and redemption rules be set?","acceptedAnswer":{"@type":"Answer","text":"Yes, as part of product setup and approved business policy."}}]}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=42">
+    <link rel="stylesheet" href="/assets/site.css?v=43">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -193,6 +193,42 @@
             </div>
         </div>
 
+        <section class="gift-buyer-flow" data-product-flow aria-labelledby="gift-buyer-flow-title">
+            <div class="gift-buyer-flow-heading">
+                <div><p class="section-index">BUYER JOURNEY</p><h3 id="gift-buyer-flow-title">From one story to a gift that is sent and ready to redeem</h3></div>
+                <p>Select each step to see the customer experience, completed from a phone without waiting for opening hours.</p>
+            </div>
+            <div class="gift-buyer-flow-shell">
+                <div class="gift-buyer-steps" role="tablist" aria-label="Gift-card purchase steps">
+                                            <button type="button" role="tab" aria-selected="true" tabindex="0" class="is-active" data-product-flow-step="0"><span>01</span><b>Discover</b></button>
+                                            <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-product-flow-step="1"><span>02</span><b>Choose</b></button>
+                                            <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-product-flow-step="2"><span>03</span><b>Personalize</b></button>
+                                            <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-product-flow-step="3"><span>04</span><b>Pay</b></button>
+                                            <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-product-flow-step="4"><span>05</span><b>Redeem</b></button>
+                                    </div>
+                <div class="gift-buyer-phone" aria-live="polite">
+                    <div class="gift-buyer-phone-bar"><span>09:41</span><i></i><b>●●●</b></div>
+                    <section class="product-flow-panel is-active gift-social-panel" role="tabpanel" data-product-flow-panel="0">
+                        <div class="gift-story-progress"><i></i><i></i><i></i></div><div class="gift-story-profile"><span>או</span><b>Oria Spa</b></div><small>Valentine gift</small><h4>A gift they will feel</h4><p>A couples experience that lasts beyond the day</p><button type="button" data-product-flow-next>Buy a gift card</button>
+                    </section>
+                    <section class="product-flow-panel" role="tabpanel" data-product-flow-panel="1" hidden>
+                        <small>Choose a gift</small><h4>Royal couples experience</h4><div class="gift-choice-card"><b>₪790</b><span>Couples massage, breakfast and spa access</span></div><button type="button" data-product-flow-next>Add a message</button>
+                    </section>
+                    <section class="product-flow-panel" role="tabpanel" data-product-flow-panel="2" hidden>
+                        <small>Message and delivery</small><h4>Who is receiving the gift?</h4><label><span>Recipient name</span><input type="text" value="Dana" readonly></label><label><span>Message</span><textarea readonly>Time for us, with love.</textarea></label><button type="button" data-product-flow-next>Review and pay</button>
+                    </section>
+                    <section class="product-flow-panel" role="tabpanel" data-product-flow-panel="3" hidden>
+                        <small>Order summary</small><h4>The gift card is ready</h4><dl><div><dt>Experience</dt><dd>Royal couples experience</dd></div><div><dt>Delivery</dt><dd>Instant email and text</dd></div><div><dt>Total</dt><dd>₪790</dd></div></dl><button type="button" data-product-flow-next>Simulate payment</button>
+                    </section>
+                    <section class="product-flow-panel gift-redeem-panel" role="tabpanel" data-product-flow-panel="4" hidden>
+                        <span>✓</span><h4>Sent and added to management</h4><p>Balance, validity and status remain available to the team through redemption.</p><b>GIFT 2841</b><button type="button" data-product-flow-restart>View again</button>
+                    </section>
+                </div>
+                <div class="gift-buyer-outcome"><span>What the business sees</span><h4>The sale already appears in gift-card operations</h4><div><i></i><p><b>GIFT 2841</b><small>Paid, sent, awaiting redemption</small></p><strong>₪790</strong></div><ul><li>Balance and validity</li><li>Sales source</li><li>Full or partial redemption</li></ul></div>
+            </div>
+            <p class="product-flow-integrity">Oria Spa is fictional. The interface and figures are illustrative only.</p>
+        </section>
+
         <div class="gift-distribution-grid">
             <article class="gift-channel-card is-active">
                 <div class="gift-channel-icon">BIZ</div>
@@ -364,6 +400,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=20" defer></script>
+<script src="/assets/site.js?v=21" defer></script>
 </body>
 </html>
