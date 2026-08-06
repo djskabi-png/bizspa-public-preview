@@ -463,7 +463,7 @@
             ];
         };
         var staticBookingHosts = ['127.0.0.1', 'localhost', 'bizonline.spaplus.co'];
-        var isStaticPreview = staticBookingHosts.indexOf(window.location.hostname) !== -1 || /\.github\.io$/i.test(window.location.hostname);
+        var isStaticPreview = staticBookingHosts.indexOf(window.location.hostname) !== -1 || /\.(github\.io|pages\.dev)$/i.test(window.location.hostname);
 
         var worldLabels = {
             care: demoHebrew ? 'ספא וקליניקות' : 'Spa and clinics',
