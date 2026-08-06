@@ -954,6 +954,48 @@
         document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && !screenLightbox.hidden) setScreenLightbox(false); });
     }
 
+    var customerJourney = document.querySelector('[data-customer-journey]');
+    if (customerJourney) {
+        var journeySteps = customerJourney.querySelectorAll('[data-journey-step]');
+        var journeyPanels = customerJourney.querySelectorAll('[data-journey-panel]');
+        var activateJourneyStep = function (activeIndex, focusStep) {
+            Array.prototype.forEach.call(journeySteps, function (step, stepIndex) {
+                var active = stepIndex === activeIndex;
+                step.classList.toggle('is-active', active);
+                step.setAttribute('aria-selected', active ? 'true' : 'false');
+                step.setAttribute('tabindex', active ? '0' : '-1');
+                if (active && focusStep) step.focus();
+                if (active && window.innerWidth <= 640) {
+                    step.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest', inline: 'nearest' });
+                }
+            });
+            Array.prototype.forEach.call(journeyPanels, function (panel, panelIndex) {
+                var active = panelIndex === activeIndex;
+                panel.hidden = !active;
+                panel.classList.toggle('is-active', active);
+            });
+        };
+        Array.prototype.forEach.call(journeySteps, function (step, stepIndex) {
+            step.addEventListener('click', function () { activateJourneyStep(stepIndex, false); });
+            step.addEventListener('keydown', function (event) {
+                if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+                event.preventDefault();
+                var direction = event.key === 'ArrowLeft' ? 1 : -1;
+                activateJourneyStep((stepIndex + direction + journeySteps.length) % journeySteps.length, true);
+            });
+        });
+        Array.prototype.forEach.call(customerJourney.querySelectorAll('[data-journey-next]'), function (button) {
+            button.addEventListener('click', function () {
+                var panel = button.closest('[data-journey-panel]');
+                var currentIndex = Number(panel ? panel.getAttribute('data-journey-panel') : 0);
+                activateJourneyStep(Math.min(currentIndex + 1, journeyPanels.length - 1), false);
+            });
+        });
+        Array.prototype.forEach.call(customerJourney.querySelectorAll('[data-journey-restart]'), function (button) {
+            button.addEventListener('click', function () { activateJourneyStep(0, false); });
+        });
+    }
+
     var storeDemo = document.querySelector('[data-store-demo]');
     if (storeDemo) {
         var storeFilters = storeDemo.querySelectorAll('[data-demo-filter]');
