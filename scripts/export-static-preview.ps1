@@ -46,7 +46,9 @@ foreach ($route in $routes) {
     } else {
         $html = $html -replace '(?i)<meta\s+name=["'']robots["''][^>]*>', '<meta name="robots" content="noindex, nofollow">'
     }
-    $html = $html -replace '(?i)<button([^>]*type=["'']submit["''][^>]*)>', '<button$1 disabled aria-disabled="true">'
+    if ($path -notmatch '/book-a-demo/?$') {
+        $html = $html -replace '(?i)<button([^>]*type=["'']submit["''][^>]*)>', '<button$1 disabled aria-disabled="true">'
+    }
 
     $relative = $path.Trim('/')
     $destinationDirectory = Join-Path $publicRoot ($relative -replace '/', '\')
