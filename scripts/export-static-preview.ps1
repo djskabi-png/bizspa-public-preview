@@ -57,7 +57,25 @@ foreach ($route in $routes) {
 }
 
 Copy-Item -LiteralPath (Join-Path $sourceSite 'assets') -Destination (Join-Path $publicRoot 'assets') -Recurse
-[IO.File]::WriteAllText((Join-Path $publicRoot 'robots.txt'), "User-agent: *`nDisallow: /`n", [Text.UTF8Encoding]::new($false))
+$sitemapEntries = foreach ($route in $routes) {
+    $path = [string] $route.path
+    $locale = if ($path -match '^/en(?:/|$)') { 'en' } else { 'he' }
+    $alternateLocale = if ($locale -eq 'he') { 'en' } else { 'he' }
+    $alternatePath = $path -replace ('^/' + $locale), ('/' + $alternateLocale)
+    "  <url>`n    <loc>https://$customDomain$path</loc>`n    <lastmod>$(Get-Date -Format 'yyyy-MM-dd')</lastmod>`n    <xhtml:link rel=`"alternate`" hreflang=`"$locale`" href=`"https://$customDomain$path`" />`n    <xhtml:link rel=`"alternate`" hreflang=`"$alternateLocale`" href=`"https://$customDomain$alternatePath`" />`n  </url>"
+}
+$sitemap = "<?xml version=`"1.0`" encoding=`"UTF-8`"?>`n<urlset xmlns=`"http://www.sitemaps.org/schemas/sitemap/0.9`" xmlns:xhtml=`"http://www.w3.org/1999/xhtml`">`n$($sitemapEntries -join "`n")`n</urlset>`n"
+[IO.File]::WriteAllText((Join-Path $publicRoot 'sitemap.xml'), $sitemap, [Text.UTF8Encoding]::new($false))
+[IO.File]::WriteAllText((Join-Path $publicRoot 'robots.txt'), "User-agent: *`nDisallow: /`nSitemap: https://$customDomain/sitemap.xml`n", [Text.UTF8Encoding]::new($false))
+$headers = @'
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; media-src 'self'; font-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'
+'@
+[IO.File]::WriteAllText((Join-Path $publicRoot '_headers'), $headers.Trim() + "`n", [Text.UTF8Encoding]::new($false))
 [IO.File]::WriteAllText((Join-Path $publicRoot '.nojekyll'), '', [Text.UTF8Encoding]::new($false))
 [IO.File]::WriteAllText((Join-Path $publicRoot 'CNAME'), $customDomain + "`n", [Text.UTF8Encoding]::new($false))
 $rootDocument = '<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1"><title>BIZonline</title><meta http-equiv="refresh" content="0; url=/he/"><link rel="canonical" href="https://' + $customDomain + '/he/"></head><body><p><a href="/he/">BIZonline</a></p></body></html>'
