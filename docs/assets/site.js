@@ -878,6 +878,7 @@
         var videoTabs = videoBlock.querySelectorAll('[data-world-video-tab]');
         var videoFrame = videoBlock.querySelector('[data-world-video-frame]');
         var videoCaption = videoBlock.querySelector('[data-world-video-caption]');
+        var screenImage = videoBlock.querySelector('[data-world-screen-image]');
         var videoPlay = videoBlock.querySelector('[data-world-video-play]');
         var videoModal = videoBlock.querySelector('[data-world-video-modal]');
         var videoClose = videoBlock.querySelector('[data-world-video-close]');
@@ -891,6 +892,18 @@
             });
             videoFrame.setAttribute('data-active-chapter', String(activeIndex));
             if (videoCaption && videoTabs[activeIndex]) videoCaption.textContent = videoTabs[activeIndex].textContent.replace(/^0\d\s*/, '');
+            if (screenImage && videoTabs[activeIndex]) {
+                var nextScreen = videoTabs[activeIndex].getAttribute('data-world-screen-src');
+                var nextAlt = videoTabs[activeIndex].getAttribute('data-world-screen-alt');
+                if (nextScreen && screenImage.getAttribute('src') !== nextScreen) {
+                    screenImage.style.opacity = '0';
+                    window.setTimeout(function () {
+                        screenImage.setAttribute('src', nextScreen);
+                        screenImage.setAttribute('alt', nextAlt || '');
+                        screenImage.style.opacity = '1';
+                    }, 120);
+                }
+            }
         };
         Array.prototype.forEach.call(videoTabs, function (tab, tabIndex) {
             tab.addEventListener('click', function () { activateVideoChapter(tabIndex, false); });
@@ -914,6 +927,32 @@
             document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && !videoModal.hidden) setVideoModal(false); });
         }
     });
+
+    var screenLightbox = document.querySelector('[data-screen-lightbox]');
+    if (screenLightbox) {
+        var screenLightboxImage = screenLightbox.querySelector('[data-screen-lightbox-image]');
+        var screenLightboxClose = screenLightbox.querySelector('[data-screen-lightbox-close]');
+        var screenLightboxTriggers = document.querySelectorAll('[data-screen-lightbox-trigger]');
+        var screenLightboxReturn = null;
+        var setScreenLightbox = function (isOpen, trigger) {
+            screenLightbox.hidden = !isOpen;
+            document.body.classList.toggle('has-modal-open', isOpen);
+            if (isOpen && trigger) {
+                screenLightboxReturn = trigger;
+                screenLightboxImage.setAttribute('src', trigger.getAttribute('data-screen-src') || '');
+                screenLightboxImage.setAttribute('alt', trigger.getAttribute('data-screen-alt') || '');
+                screenLightboxClose.focus();
+            } else if (!isOpen && screenLightboxReturn) {
+                screenLightboxReturn.focus();
+            }
+        };
+        Array.prototype.forEach.call(screenLightboxTriggers, function (trigger) {
+            trigger.addEventListener('click', function () { setScreenLightbox(true, trigger); });
+        });
+        screenLightboxClose.addEventListener('click', function () { setScreenLightbox(false); });
+        screenLightbox.addEventListener('click', function (event) { if (event.target === screenLightbox) setScreenLightbox(false); });
+        document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && !screenLightbox.hidden) setScreenLightbox(false); });
+    }
 
     var storeDemo = document.querySelector('[data-store-demo]');
     if (storeDemo) {
