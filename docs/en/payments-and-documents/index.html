@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Keep payments and records connected to the booking | BIZonline</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Keep payments and records connected to the booking | BIZonline","description":"Bring deposits, balances and payment records together with the customer and booking details.","url":"https://bizonline.co.il/en/payments-and-documents","inLanguage":"en"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which payment provider is supported?","acceptedAnswer":{"@type":"Answer","text":"Compatibility must be verified against the provider, account, interface and permissions."}},{"@type":"Question","name":"Can the business collect only a deposit?","acceptedAnswer":{"@type":"Answer","text":"A deposit and balance flow can be assessed according to business policy."}},{"@type":"Question","name":"Are card details stored?","acceptedAnswer":{"@type":"Answer","text":"Storage behavior cannot be promised without verifying the provider and integration. Sensitive exposure should be minimized."}}]}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=30">
+    <link rel="stylesheet" href="/assets/site.css?v=39">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -102,18 +102,50 @@
             </div>
         </div>
 
-        <figure class="capability-screen-card">
-            <div class="capability-screen-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="capability-screen-media">
-                <img src="/assets/media/bizonline-product-confirmation-en.webp" alt="Localized BIZonline signed-booking confirmation with fictional sample data" width="1400" height="875">
-                            </div>
-            <figcaption>
-                <strong>Keep approval connected to the booking</strong>
-                <span>A localized BIZonline confirmation demonstration. The live payment provider and document flow depend on the approved integration.</span>
-            </figcaption>
-        </figure>
+        
+<section class="capability-live-demo capability-live-demo-commerce" data-capability-demo data-demo-mode="commerce" aria-label="Interactive BIZonline capability illustration">
+    <header class="live-demo-topbar">
+        <div class="live-demo-brand"><b>BIZ</b><span>BIZonline</span></div>
+        <div class="live-demo-live"><i></i>Interactive demo</div>
+    </header>
+
+    <div class="live-demo-heading">
+        <div><span>Revenue and redemption</span><strong>Deposits</strong></div>
+        <div class="live-demo-metric"><b>₪12,840</b><small>Sample data</small></div>
+    </div>
+
+    <div class="live-demo-tabs" role="tablist" aria-label="Choose an illustration view">
+                    <button type="button" role="tab" aria-selected="true" tabindex="0" class="is-active" data-capability-demo-tab="0"><span>01</span>Deposits</button>
+                    <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-capability-demo-tab="1"><span>02</span>Balances</button>
+                    <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-capability-demo-tab="2"><span>03</span>Payment methods</button>
+            </div>
+
+    <div class="live-demo-canvas" data-demo-active="0">
+                    <div class="live-commerce-kpis" aria-hidden="true"><article><small>Today</small><b>₪12,840</b><span>+12%</span></article><article><small>Redemptions</small><b>24</b><span>active</span></article><article><small>Open balances</small><b>07</b><span>review</span></article></div>
+            <div class="live-commerce-list" aria-hidden="true"><div><i></i><strong>Couples gift card</strong><span>₪690</span><b>Active</b></div><div><i></i><strong>Treatment series</strong><span>4 / 8</span><b>In use</b></div><div><i></i><strong>Booking deposit</strong><span>₪450</span><b>Paid</b></div></div>
+            </div>
+
+    <div class="live-demo-details" aria-live="polite">
+                                <article data-capability-demo-panel="0"><span>Now showing</span><strong>Deposits</strong><p>Assess a deposit requirement as part of booking approval.</p></article>
+                                <article data-capability-demo-panel="1" hidden><span>Now showing</span><strong>Balances</strong><p>Show what was paid and what remains, based on available records.</p></article>
+                                <article data-capability-demo-panel="2" hidden><span>Now showing</span><strong>Payment methods</strong><p>Review provider, document and integration requirements before commitment.</p></article>
+            </div>
+    <footer><span>Interactive illustration with sample data only</span><b>Not a customer screenshot</b></footer>
+</section>
     </div>
 </section>
+
+<nav class="capability-quick-nav" aria-label="Capability quick navigation">
+    <div class="shell">
+        <span>On this page</span>
+        <a href="#how-it-works">What you get</a>
+        <a href="#capability-workflow">How it works</a>
+        <a href="#capability-management">Control and management</a>
+        <a href="#capability-faq">FAQ</a>
+        <a class="capability-quick-nav-cta" href="/en/book-a-demo">Book a demo</a>
+    </div>
+</nav>
+
 
 <section class="capability-problem-section">
     <div class="shell capability-problem-grid">
@@ -159,7 +191,7 @@
     </div>
 </section>
 
-<section class="capability-workflow-section">
+<section class="capability-workflow-section" id="capability-workflow">
     <div class="shell">
         <div class="capability-section-heading capability-section-heading-light">
             <div>
@@ -189,7 +221,7 @@
     </div>
 </section>
 
-<section class="capability-management-section">
+<section class="capability-management-section" id="capability-management">
     <div class="shell capability-management-grid">
         <div>
             <p class="section-index">04</p>
@@ -205,7 +237,7 @@
     </div>
 </section>
 
-<section class="capability-faq-section">
+<section class="capability-faq-section" id="capability-faq">
     <div class="shell capability-faq-grid">
         <div class="capability-faq-intro">
             <p class="section-index">05</p>
@@ -257,6 +289,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=6" defer></script>
+<script src="/assets/site.js?v=16" defer></script>
 </body>
 </html>

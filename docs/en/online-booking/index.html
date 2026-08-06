@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Online booking that continues into operations | BIZonline</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Online booking that continues into operations | BIZonline","description":"A booking flow that presents services and availability, then carries the details into the calendar and team workflow.","url":"https://bizonline.co.il/en/online-booking","inLanguage":"en"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can staff create a booking by phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Staff entry can operate alongside an assessed online booking path."}},{"@type":"Question","name":"How are unavailable slots prevented?","acceptedAnswer":{"@type":"Answer","text":"Availability and resource rules are configured during setup."}},{"@type":"Question","name":"Can payment be connected?","acceptedAnswer":{"@type":"Answer","text":"Deposits and balances can be assessed according to the approved payment provider and connection."}}]}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=30">
+    <link rel="stylesheet" href="/assets/site.css?v=39">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -102,18 +102,54 @@
             </div>
         </div>
 
-        <figure class="capability-screen-card">
-            <div class="capability-screen-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="capability-screen-media">
-                <img src="/assets/media/bizonline-product-bookings-en.webp" alt="Localized BIZonline active-bookings screen with fictional sample data" width="1400" height="875">
-                            </div>
-            <figcaption>
-                <strong>Every booking continues into operations</strong>
-                <span>A localized BIZonline demonstration showing active bookings after they enter the operating workflow.</span>
-            </figcaption>
-        </figure>
+        
+<section class="capability-live-demo capability-live-demo-calendar" data-capability-demo data-demo-mode="calendar" aria-label="Interactive BIZonline capability illustration">
+    <header class="live-demo-topbar">
+        <div class="live-demo-brand"><b>BIZ</b><span>BIZonline</span></div>
+        <div class="live-demo-live"><i></i>Interactive demo</div>
+    </header>
+
+    <div class="live-demo-heading">
+        <div><span>Live operations</span><strong>Service selection</strong></div>
+        <div class="live-demo-metric"><b>18 activities</b><small>84% occupancy</small></div>
+    </div>
+
+    <div class="live-demo-tabs" role="tablist" aria-label="Choose an illustration view">
+                    <button type="button" role="tab" aria-selected="true" tabindex="0" class="is-active" data-capability-demo-tab="0"><span>01</span>Service selection</button>
+                    <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-capability-demo-tab="1"><span>02</span>Availability</button>
+                    <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-capability-demo-tab="2"><span>03</span>Customer details</button>
+            </div>
+
+    <div class="live-demo-canvas" data-demo-active="0">
+                    <div class="live-calendar-times" aria-hidden="true"><span>09:00</span><span>10:00</span><span>11:00</span><span>12:00</span><span>13:00</span></div>
+            <div class="live-calendar-grid" aria-hidden="true">
+                <b>Yael</b><i class="slot slot-one">Confirmed booking</i><i class="slot slot-two">Room 2</i>
+                <b>Daniel</b><i class="slot slot-three">Active service</i><i class="slot slot-four">Available</i>
+                <b>Noa</b><i class="slot slot-five">Series, visit 4</i><i class="slot slot-six">Approved</i>
+            </div>
+            </div>
+
+    <div class="live-demo-details" aria-live="polite">
+                                <article data-capability-demo-panel="0"><span>Now showing</span><strong>Service selection</strong><p>Choose the service, client, date and time in one path.</p></article>
+                                <article data-capability-demo-panel="1" hidden><span>Now showing</span><strong>Availability</strong><p>Move from service selection to availability and customer details.</p></article>
+                                <article data-capability-demo-panel="2" hidden><span>Now showing</span><strong>Customer details</strong><p>Carry confirmed bookings into staff and resource planning.</p></article>
+            </div>
+    <footer><span>Interactive illustration with sample data only</span><b>Not a customer screenshot</b></footer>
+</section>
     </div>
 </section>
+
+<nav class="capability-quick-nav" aria-label="Capability quick navigation">
+    <div class="shell">
+        <span>On this page</span>
+        <a href="#how-it-works">What you get</a>
+        <a href="#capability-workflow">How it works</a>
+        <a href="#capability-management">Control and management</a>
+        <a href="#capability-faq">FAQ</a>
+        <a class="capability-quick-nav-cta" href="/en/book-a-demo">Book a demo</a>
+    </div>
+</nav>
+
 
 <section class="capability-problem-section">
     <div class="shell capability-problem-grid">
@@ -159,7 +195,7 @@
     </div>
 </section>
 
-<section class="capability-workflow-section">
+<section class="capability-workflow-section" id="capability-workflow">
     <div class="shell">
         <div class="capability-section-heading capability-section-heading-light">
             <div>
@@ -189,7 +225,7 @@
     </div>
 </section>
 
-<section class="capability-management-section">
+<section class="capability-management-section" id="capability-management">
     <div class="shell capability-management-grid">
         <div>
             <p class="section-index">04</p>
@@ -205,7 +241,7 @@
     </div>
 </section>
 
-<section class="capability-faq-section">
+<section class="capability-faq-section" id="capability-faq">
     <div class="shell capability-faq-grid">
         <div class="capability-faq-intro">
             <p class="section-index">05</p>
@@ -257,6 +293,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=6" defer></script>
+<script src="/assets/site.js?v=16" defer></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Manage rooms, equipment and capacity beside the schedule | BIZonline</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Manage rooms, equipment and capacity beside the schedule | BIZonline","description":"Check the availability of every resource required to deliver a service and prevent impossible assignments.","url":"https://bizonline.co.il/en/resource-management","inLanguage":"en"}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=30">
+    <link rel="stylesheet" href="/assets/site.css?v=39">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -103,18 +103,44 @@
             </div>
         </div>
 
-        <figure class="capability-screen-card">
-            <div class="capability-screen-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-            <div class="capability-screen-media">
-                <img src="/assets/media/bizonline-product-bookings-en.webp" alt="BIZonline demo environment screen" width="1400" height="875">
-                            </div>
-            <figcaption>
-                <strong>Product environment</strong>
-                <span>Demo environment with sample data only.</span>
-            </figcaption>
-        </figure>
+        
+<section class="capability-live-demo capability-live-demo-calendar" data-capability-demo data-demo-mode="calendar" aria-label="Interactive BIZonline capability illustration">
+    <header class="live-demo-topbar">
+        <div class="live-demo-brand"><b>BIZ</b><span>BIZonline</span></div>
+        <div class="live-demo-live"><i></i>Interactive demo</div>
+    </header>
+
+    <div class="live-demo-heading">
+        <div><span>Live operations</span><strong>Rooms</strong></div>
+        <div class="live-demo-metric"><b>18 activities</b><small>84% occupancy</small></div>
+    </div>
+
+    <div class="live-demo-tabs" role="tablist" aria-label="Choose an illustration view">
+                    <button type="button" role="tab" aria-selected="true" tabindex="0" class="is-active" data-capability-demo-tab="0"><span>01</span>Rooms</button>
+                    <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-capability-demo-tab="1"><span>02</span>Equipment</button>
+                    <button type="button" role="tab" aria-selected="false" tabindex="-1" class="" data-capability-demo-tab="2"><span>03</span>Capacity</button>
+            </div>
+
+    <div class="live-demo-canvas" data-demo-active="0">
+                    <div class="live-calendar-times" aria-hidden="true"><span>09:00</span><span>10:00</span><span>11:00</span><span>12:00</span><span>13:00</span></div>
+            <div class="live-calendar-grid" aria-hidden="true">
+                <b>Yael</b><i class="slot slot-one">Confirmed booking</i><i class="slot slot-two">Room 2</i>
+                <b>Daniel</b><i class="slot slot-three">Active service</i><i class="slot slot-four">Available</i>
+                <b>Noa</b><i class="slot slot-five">Series, visit 4</i><i class="slot slot-six">Approved</i>
+            </div>
+            </div>
+
+    <div class="live-demo-details" aria-live="polite">
+                                <article data-capability-demo-panel="0"><span>Now showing</span><strong>Rooms</strong><p>Check the availability of every resource required to deliver a service and prevent impossible assignments.</p></article>
+                                <article data-capability-demo-panel="1" hidden><span>Now showing</span><strong>Equipment</strong><p>Check the availability of every resource required to deliver a service and prevent impossible assignments.</p></article>
+                                <article data-capability-demo-panel="2" hidden><span>Now showing</span><strong>Capacity</strong><p>Check the availability of every resource required to deliver a service and prevent impossible assignments.</p></article>
+            </div>
+    <footer><span>Interactive illustration with sample data only</span><b>Not a customer screenshot</b></footer>
+</section>
     </div>
 </section>
+
+
 
 <section class="capability-compact-section">
     <div class="shell capability-list">
@@ -137,6 +163,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=6" defer></script>
+<script src="/assets/site.js?v=16" defer></script>
 </body>
 </html>
