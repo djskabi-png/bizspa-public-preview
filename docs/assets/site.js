@@ -266,6 +266,7 @@
         var dateBox = demoBooking.querySelector('[data-demo-dates]');
         var timeBox = demoBooking.querySelector('[data-demo-times]');
         var availabilityStatus = demoBooking.querySelector('[data-demo-availability-status]');
+        var availabilityCopy = demoBooking.querySelector('[data-demo-availability-copy]');
         var nextButton = demoBooking.querySelector('[data-booking-next]');
         var backButton = demoBooking.querySelector('[data-booking-back]');
         var bookingStatus = demoBooking.querySelector('[data-demo-booking-status]');
@@ -444,11 +445,13 @@
                 return slots;
             };
             return [
+                { id: 900, name: demoHebrew ? 'כל מדריכה זמינה' : 'Any available instructor', duration: 45, slots: createSlots(['09:30', '12:00', '15:30']) },
                 { id: 901, name: demoHebrew ? 'שולי' : 'Shuli', duration: 45, slots: createSlots(['09:00', '11:00', '14:00']) },
                 { id: 902, name: demoHebrew ? 'רבקה' : 'Rivka', duration: 45, slots: createSlots(['10:00', '12:30', '16:00']) }
             ];
         };
-        var isStaticPreview = (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') && window.location.port === '8791';
+        var staticBookingHosts = ['127.0.0.1', 'localhost', 'bizonline.spaplus.co'];
+        var isStaticPreview = staticBookingHosts.indexOf(window.location.hostname) !== -1 || /\.github\.io$/i.test(window.location.hostname);
 
         fetch('/api/demo-availability.php?locale=' + encodeURIComponent(demoHebrew ? 'he' : 'en'))
             .then(function (response) {
@@ -468,7 +471,14 @@
             .catch(function (error) {
                 if (isStaticPreview) {
                     instructors = buildPreviewInstructors();
-                    availabilityStatus.textContent = demoHebrew ? 'מועדי המחשה לצורך צפייה בתהליך' : 'Sample times for previewing the booking flow';
+                    if (availabilityCopy) {
+                        availabilityCopy.textContent = demoHebrew
+                            ? 'בחרו מדריכה ומועד מתוך לוח ההמחשה. חיבור ליומנים אמיתיים יופעל לאחר הגדרת חשבונות הצוות.'
+                            : 'Choose an instructor and a time from the demonstration calendar. Live calendar connections will be activated after the team accounts are configured.';
+                    }
+                    availabilityStatus.textContent = demoHebrew
+                        ? 'בחרו את שולי, רבקה או כל מדריכה זמינה. המועדים המוצגים כעת הם להמחשת תהליך הקביעה.'
+                        : 'Choose Shuli, Rivka or any available instructor. The times shown are currently for demonstrating the booking flow.';
                     renderInstructors();
                     return;
                 }
@@ -494,14 +504,14 @@
             }
             if (isStaticPreview) {
                 demoBooking.querySelector('[data-demo-success-message]').textContent = demoHebrew
-                    ? 'זהו אישור המחשה בלבד. בסביבת האתר החיה תישלח הזמנה אוטומטית ויתווסף קישור לפגישה.'
-                    : 'This is a preview confirmation only. On the live website, an invitation and meeting link will be sent automatically.';
+                    ? 'זהו אישור המחשה בלבד. שליחת הזמנה וקישור לפגישה תופעל לאחר חיבור יומני הצוות.'
+                    : 'This is a demonstration confirmation only. Invitation and meeting-link delivery will be activated after the team calendars are connected.';
                 demoBooking.querySelector('[data-demo-confirmed-slot]').textContent = selectedInstructor.name + ', ' + formatDate(selectedSlot.date, { weekday: 'long', day: 'numeric', month: 'long' }) + ', ' + selectedSlot.time;
                 var previewSuccessNote = demoBooking.querySelector('[data-demo-success-note]');
                 if (previewSuccessNote) {
                     previewSuccessNote.textContent = demoHebrew
-                        ? 'לא נשלחה הזמנה אמיתית מגרסת ההמחשה המקומית.'
-                        : 'No real invitation was sent from the local preview.';
+                        ? 'לא נשלחה הזמנה אמיתית מגרסת ההמחשה הציבורית.'
+                        : 'No real invitation was sent from the public demonstration.';
                 }
                 setStep(3);
                 return;
