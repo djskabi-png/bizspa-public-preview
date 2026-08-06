@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /
+Sitemap: https://bizonline.spaplus.co/sitemap.xml
