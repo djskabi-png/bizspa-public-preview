@@ -447,7 +447,11 @@
             return [
                 { id: 900, name: demoHebrew ? 'כל מדריכה זמינה' : 'Any available instructor', duration: 45, slots: createSlots(['09:30', '12:00', '15:30']) },
                 { id: 901, name: demoHebrew ? 'שולי' : 'Shuli', duration: 45, slots: createSlots(['09:00', '11:00', '14:00']) },
-                { id: 902, name: demoHebrew ? 'רבקה' : 'Rivka', duration: 45, slots: createSlots(['10:00', '12:30', '16:00']) }
+                { id: 902, name: demoHebrew ? 'רבקה' : 'Rivka', duration: 45, slots: createSlots(['10:00', '12:30', '16:00']) },
+                { id: 903, name: demoHebrew ? 'לירן' : 'Liran', duration: 45, slots: createSlots(['09:30', '13:00', '16:30']) },
+                { id: 904, name: demoHebrew ? 'שירן' : 'Shiran', duration: 45, slots: createSlots(['10:30', '13:30', '17:00']) },
+                { id: 905, name: demoHebrew ? 'ענת' : 'Anat', duration: 45, slots: createSlots(['09:00', '12:00', '15:00']) },
+                { id: 906, name: demoHebrew ? 'קארין' : 'Karin', duration: 45, slots: createSlots(['11:00', '14:00', '17:30']) }
             ];
         };
         var staticBookingHosts = ['127.0.0.1', 'localhost', 'bizonline.spaplus.co'];
@@ -473,12 +477,12 @@
                     instructors = buildPreviewInstructors();
                     if (availabilityCopy) {
                         availabilityCopy.textContent = demoHebrew
-                            ? 'בחרו מדריכה ומועד מתוך לוח ההמחשה. חיבור ליומנים אמיתיים יופעל לאחר הגדרת חשבונות הצוות.'
+                            ? 'בחרו מדריכה ומועד מתוך לוח ההמחשה. חיבור ליומנים האמיתיים יופעל לאחר הגדרת חשבונות הצוות.'
                             : 'Choose an instructor and a time from the demonstration calendar. Live calendar connections will be activated after the team accounts are configured.';
                     }
                     availabilityStatus.textContent = demoHebrew
-                        ? 'בחרו את שולי, רבקה או כל מדריכה זמינה. המועדים המוצגים כעת הם להמחשת תהליך הקביעה.'
-                        : 'Choose Shuli, Rivka or any available instructor. The times shown are currently for demonstrating the booking flow.';
+                        ? 'בחרו את מדריכת התחום המתאימה. המועדים המוצגים כעת מיועדים להמחשת תהליך הקביעה.'
+                        : 'Choose the relevant field instructor. The times shown are currently for demonstrating the booking flow.';
                     renderInstructors();
                     return;
                 }
