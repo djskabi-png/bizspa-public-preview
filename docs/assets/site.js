@@ -638,6 +638,11 @@
         var goalModules = featuresExperience.querySelector('[data-goal-modules]');
         var goalCenter = featuresExperience.querySelector('[data-goal-center]');
         var goalResult = featuresExperience.querySelector('[data-goal-result]');
+        var goalVisual = featuresExperience.querySelector('[data-goal-visual]');
+        var goalOrbitButtons = featuresExperience.querySelectorAll('[data-goal-orbit]');
+        var goalNext = featuresExperience.querySelector('[data-goal-next]');
+        var goalProgress = featuresExperience.querySelector('[data-goal-progress]');
+        var goalPrimary = featuresExperience.querySelector('[data-goal-primary]');
         var moduleCards = featuresExperience.querySelectorAll('[data-module-card]');
         var moduleFilters = featuresExperience.querySelectorAll('[data-module-filter]');
         var moduleEmpty = featuresExperience.querySelector('[data-module-empty]');
@@ -658,6 +663,11 @@
             var heading = card ? card.querySelector('h3') : null;
             return heading ? heading.textContent : slug;
         };
+        var moduleHref = function (slug) {
+            var card = featuresExperience.querySelector('[data-module-slug="' + slug + '"]');
+            return card ? card.getAttribute('href') : '#module-library';
+        };
+        var goalKeys = Array.prototype.map.call(goalTabs, function (tab) { return tab.getAttribute('data-feature-goal'); });
 
         var showGoal = function (key, moveFocus) {
             var group = featureGroups[key];
@@ -673,14 +683,29 @@
             goalDescription.textContent = group.description;
             goalModules.innerHTML = '';
             (group.slugs || []).slice(0, 5).forEach(function (slug) {
-                var pill = document.createElement('span');
+                var pill = document.createElement('a');
                 pill.textContent = moduleTitle(slug);
+                pill.href = moduleHref(slug);
                 goalModules.appendChild(pill);
             });
             if (goalVisualWords[key]) {
                 goalCenter.textContent = goalVisualWords[key][0];
                 goalResult.textContent = goalVisualWords[key][1];
             }
+            if (goalVisual) {
+                goalVisual.setAttribute('data-goal-active', key);
+                goalVisual.classList.remove('is-changing');
+                void goalVisual.offsetWidth;
+                goalVisual.classList.add('is-changing');
+            }
+            Array.prototype.forEach.call(goalOrbitButtons, function (button) {
+                var active = button.getAttribute('data-goal-orbit') === key;
+                button.classList.toggle('is-active', active);
+                button.setAttribute('aria-pressed', active ? 'true' : 'false');
+            });
+            var activeIndex = goalKeys.indexOf(key);
+            if (goalProgress) goalProgress.textContent = String(activeIndex + 1).padStart(2, '0') + ' / ' + String(goalKeys.length).padStart(2, '0');
+            if (goalPrimary && group.slugs && group.slugs.length) goalPrimary.href = moduleHref(group.slugs[0]);
         };
 
         Array.prototype.forEach.call(goalTabs, function (tab, index) {
@@ -693,6 +718,16 @@
                 showGoal(goalTabs[nextIndex].getAttribute('data-feature-goal'), true);
             });
         });
+        Array.prototype.forEach.call(goalOrbitButtons, function (button) {
+            button.addEventListener('click', function () { showGoal(button.getAttribute('data-goal-orbit'), false); });
+        });
+        if (goalNext) {
+            goalNext.addEventListener('click', function () {
+                var current = goalVisual ? goalVisual.getAttribute('data-goal-active') : goalKeys[0];
+                var currentIndex = Math.max(0, goalKeys.indexOf(current));
+                showGoal(goalKeys[(currentIndex + 1) % goalKeys.length], false);
+            });
+        }
         showGoal('growth', false);
 
         Array.prototype.forEach.call(moduleFilters, function (filter) {

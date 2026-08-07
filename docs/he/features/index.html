@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>היכולות של ביז אונליין | BIZonline</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"היכולות של ביז אונליין | BIZonline","description":"כלים שמחברים את ההזמנה, הלקוח, הצוות, המשאבים, התשלום והתמונה הניהולית לרצף עבודה אחד.","url":"https://bizonline.co.il/he/features","inLanguage":"he"}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=51">
+    <link rel="stylesheet" href="/assets/site.css?v=52">
 </head>
 <body>
 <a class="skip-link" href="#main">דילוג לתוכן</a>
@@ -148,17 +148,36 @@
                                     <button type="button" role="tab" data-feature-goal="connect" aria-selected="false" tabindex="-1">
                         <span>04</span>לחבר הכול                    </button>
                             </div>
-            <div class="goal-stage">
+            <div class="goal-stage" data-goal-stage>
                 <div class="goal-stage-copy" aria-live="polite">
                     <p class="eyebrow" data-goal-label>להגדיל הכנסות</p>
                     <h3 data-goal-title>יותר הזמנות, פחות מקומות ריקים</h3>
                     <p data-goal-description>הזמנה מקוונת, שוברי מתנה, מנויים וניהול לידים שממשיכים לעבוד גם כשהצוות עסוק.</p>
                     <div class="goal-module-pills" data-goal-modules></div>
                 </div>
-                <div class="goal-visual" aria-hidden="true">
-                    <div class="goal-orbit"><span></span><span></span><span></span><span></span></div>
-                    <div class="goal-center"><small>תהליך אחד</small><b data-goal-center>צמיחה</b></div>
-                    <div class="goal-result"><span>התוצאה</span><strong data-goal-result>יותר הזמנות זמינות למכירה</strong></div>
+                <div class="goal-visual" data-goal-visual data-goal-active="growth">
+                    <div class="goal-orbit" aria-label="בחירת יעד מתוך מפת ההשפעה">
+                                                    <button type="button" data-goal-orbit="growth" class="is-active" aria-pressed="true" aria-label="להגדיל הכנסות: יותר הזמנות, פחות מקומות ריקים">
+                                <i><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3Z"/><path d="M19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7L19 16Z"/></svg></i><b>להגדיל הכנסות</b>
+                            </button>
+                                                    <button type="button" data-goal-orbit="control" class="" aria-pressed="false" aria-label="לחסוך זמן: יום עבודה מסודר בלי לרדוף אחרי פרטים">
+                                <i><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></i><b>לחסוך זמן</b>
+                            </button>
+                                                    <button type="button" data-goal-orbit="insight" class="" aria-pressed="false" aria-label="לנהל חכם: לראות מה קורה ולקבל החלטות בזמן">
+                                <i><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20V10M10 20V5M16 20v-8M22 20H2"/><path d="m4 8 6-5 6 5 5-4"/></svg></i><b>לנהל חכם</b>
+                            </button>
+                                                    <button type="button" data-goal-orbit="connect" class="" aria-pressed="false" aria-label="לחבר הכול: מערכת שגדלה יחד עם העסק">
+                                <i><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 13a4.5 4.5 0 0 0 6.4 0l2.1-2.1a4.5 4.5 0 0 0-6.4-6.4L11 5.6"/><path d="M14 11a4.5 4.5 0 0 0-6.4 0l-2.1 2.1a4.5 4.5 0 1 0 6.4 6.4l1.1-1.1"/></svg></i><b>לחבר הכול</b>
+                            </button>
+                                            </div>
+                    <button type="button" class="goal-center" data-goal-next aria-label="מעבר ליעד העסקי הבא">
+                        <small>לחצו ליעד הבא</small><b data-goal-center>צמיחה</b><i aria-hidden="true">↻</i>
+                    </button>
+                    <div class="goal-result">
+                        <span>התוצאה האפשרית<b data-goal-progress>01 / 04</b></span>
+                        <strong data-goal-result>יותר הזמנות זמינות למכירה</strong>
+                        <a data-goal-primary href="/he/online-booking">ליכולת המובילה</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -418,6 +437,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=24" defer></script>
+    <script src="/assets/site.js?v=25" defer></script>
 </body>
 </html>
