@@ -948,6 +948,29 @@
         }
     });
 
+    document.querySelectorAll('[data-module-card]').forEach(function (card) {
+        var toggle = card.querySelector('[data-module-card-toggle]');
+        var detail = card.querySelector('[data-module-card-detail]');
+        if (!toggle || !detail) return;
+        toggle.addEventListener('click', function () {
+            var nextOpen = toggle.getAttribute('aria-expanded') !== 'true';
+            var group = card.closest('.world-module-card-grid');
+            if (group && nextOpen) {
+                group.querySelectorAll('[data-module-card]').forEach(function (otherCard) {
+                    if (otherCard === card) return;
+                    var otherToggle = otherCard.querySelector('[data-module-card-toggle]');
+                    var otherDetail = otherCard.querySelector('[data-module-card-detail]');
+                    if (otherToggle) otherToggle.setAttribute('aria-expanded', 'false');
+                    if (otherDetail) otherDetail.hidden = true;
+                    otherCard.classList.remove('is-open');
+                });
+            }
+            toggle.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+            detail.hidden = !nextOpen;
+            card.classList.toggle('is-open', nextOpen);
+        });
+    });
+
     var screenLightbox = document.querySelector('[data-screen-lightbox]');
     if (screenLightbox) {
         var screenLightboxImage = screenLightbox.querySelector('[data-screen-lightbox-image]');
