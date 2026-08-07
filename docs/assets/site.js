@@ -934,7 +934,9 @@
                 var videoTitle = youtubeEmbed.getAttribute('data-video-title') || 'BIZonline video';
                 if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
                 var iframe = document.createElement('iframe');
-                iframe.setAttribute('src', 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0');
+                var pageOrigin = encodeURIComponent(window.location.origin || 'https://bizonline.spaplus.co');
+                var pageUrl = encodeURIComponent(window.location.href);
+                iframe.setAttribute('src', 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&origin=' + pageOrigin + '&widget_referrer=' + pageUrl);
                 iframe.setAttribute('title', videoTitle);
                 iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
                 iframe.setAttribute('allowfullscreen', '');
