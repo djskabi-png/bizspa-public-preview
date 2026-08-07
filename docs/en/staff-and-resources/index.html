@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Coordinate teams, rooms and resources without conflicts | BIZonline</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://bizonline.spaplus.co/#organization","name":"BIZonline","legalName":"Spa Plus Websites Ltd.","url":"https://bizonline.spaplus.co/en","logo":"https://bizonline.spaplus.co/assets/media/bizonline-official-logo.webp"},{"@type":"WebSite","@id":"https://bizonline.spaplus.co/#website","name":"BIZonline","url":"https://bizonline.spaplus.co/en","inLanguage":"en","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"SoftwareApplication","@id":"https://bizonline.spaplus.co/#software","name":"BIZonline","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://bizonline.spaplus.co/en","description":"Management software for hospitality, spas and clinics","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"WebPage","@id":"https://bizonline.spaplus.co/en/staff-and-resources#webpage","name":"Coordinate teams, rooms and resources without conflicts | BIZonline","description":"Define availability, roles, rooms and equipment based on the way each service is delivered.","url":"https://bizonline.spaplus.co/en/staff-and-resources","inLanguage":"en","isPartOf":{"@id":"https://bizonline.spaplus.co/#website"},"about":{"@id":"https://bizonline.spaplus.co/#software"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://bizonline.spaplus.co/en"},{"@type":"ListItem","position":2,"name":"Features","item":"https://bizonline.spaplus.co/en/features"},{"@type":"ListItem","position":3,"name":"Coordinate teams, rooms and resources without conflicts","item":"https://bizonline.spaplus.co/en/staff-and-resources"}]}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=56">
+    <link rel="stylesheet" href="/assets/site.css?v=59">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -38,14 +38,52 @@
                             </div>
             <a href="/en/features">Features</a>
             <a href="/en/pricing">Pricing</a>
+            <button class="mobile-login-choice" type="button" aria-haspopup="dialog" data-login-choice-open>System login</button>
         </nav>
         <div class="header-actions">
             <a class="language-link" href="/he" hreflang="he">HE</a>
-            <a class="login-link" href="https://bizonline.co.il/user/login.php?lang=en">Log in</a>
+            <button class="login-link" type="button" aria-haspopup="dialog" data-login-choice-open>Log in</button>
             <a class="button button-small" href="/en/book-a-demo">Book a demo</a>
         </div>
     </div>
 </header>
+<div class="login-choice-modal" hidden data-login-choice-modal aria-hidden="true">
+    <button class="login-choice-backdrop" type="button" tabindex="-1" aria-label="Close login window" data-login-choice-close></button>
+    <section class="login-choice-panel" role="dialog" aria-modal="true" aria-labelledby="login-choice-title" aria-describedby="login-choice-description" tabindex="-1">
+        <header class="login-choice-heading">
+            <div>
+                <span>Choose your BIZonline access</span>
+                <h2 id="login-choice-title">How would you like to sign in?</h2>
+                <p id="login-choice-description">Choose the right workspace. Your existing account and login address stay unchanged.</p>
+            </div>
+            <button class="login-choice-close" type="button" aria-label="Close login window" data-login-choice-close>×</button>
+        </header>
+        <div class="login-choice-options">
+            <a class="login-choice-option login-choice-business" href="https://bizonline.co.il/user/login.php?lang=en" data-login-choice-first>
+                <span class="login-choice-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="login-choice-copy">
+                    <small>Business workspace</small>
+                    <strong>Business owners and managers</strong>
+                    <b>Villas, hospitality, spas, clinics and event venues</b>
+                </span>
+                <em aria-hidden="true">←</em>
+            </a>
+            <a class="login-choice-option login-choice-staff" href="https://bizonline.co.il/member/login.php">
+                <span class="login-choice-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="login-choice-copy">
+                    <small>Team workspace</small>
+                    <strong>Therapist login</strong>
+                    <b>View your schedule and manage your workday</b>
+                </span>
+                <em aria-hidden="true">←</em>
+            </a>
+        </div>
+        <footer class="login-choice-footer">
+            <span>Website administration is private and is not shown here.</span>
+            <a href="/en/contact">Need help signing in?</a>
+        </footer>
+    </section>
+</div>
 <div class="world-switcher" data-world-switcher>
     <button class="world-switcher-button" type="button" aria-expanded="false" aria-controls="world-switcher-panel" data-world-switcher-toggle>
         <span class="world-switcher-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
@@ -164,6 +202,6 @@
         </div>
     </div>
 </footer>
-    <script src="/assets/site.js?v=27" defer></script>
+    <script src="/assets/site.js?v=28" defer></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>תוכנה לניהול קליניקת פיזיותרפיה</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://bizonline.spaplus.co/#organization","name":"BIZonline","legalName":"ספא פלוס אתרים בע״מ","url":"https://bizonline.spaplus.co/he","logo":"https://bizonline.spaplus.co/assets/media/bizonline-official-logo.webp"},{"@type":"WebSite","@id":"https://bizonline.spaplus.co/#website","name":"BIZonline","url":"https://bizonline.spaplus.co/he","inLanguage":"he","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"SoftwareApplication","@id":"https://bizonline.spaplus.co/#software","name":"BIZonline","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://bizonline.spaplus.co/he","description":"מערכת ניהול לעסקי אירוח, ספא וקליניקות","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"WebPage","@id":"https://bizonline.spaplus.co/he/physiotherapy-clinic-software#webpage","name":"תוכנה לניהול קליניקת פיזיותרפיה","description":"תכנון תורים חוזרים, חלוקת חדרים, ניהול צוות ומעקב אחר סדרות טיפול.","url":"https://bizonline.spaplus.co/he/physiotherapy-clinic-software","inLanguage":"he","isPartOf":{"@id":"https://bizonline.spaplus.co/#website"},"about":{"@id":"https://bizonline.spaplus.co/#software"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"עמוד הבית","item":"https://bizonline.spaplus.co/he"},{"@type":"ListItem","position":2,"name":"קליניקה מסודרת יותר, מהתור הראשון ועד המעקב","item":"https://bizonline.spaplus.co/he/clinic-management-software"},{"@type":"ListItem","position":3,"name":"תוכנה לקליניקת פיזיותרפיה","item":"https://bizonline.spaplus.co/he/physiotherapy-clinic-software"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"האם ניתן לקבוע סדרת תורים מראש?","acceptedAnswer":{"@type":"Answer","text":"בפגישת ההתאמה בודקים את מבנה התורים, הרשאות הצוות, הטפסים ורצף המעקב. כל דרישה רגישה או מקצועית מאושרת מול המוצר לפני הטמעה."}},{"@type":"Question","name":"איך משנים מפגש אחד בסדרה?","acceptedAnswer":{"@type":"Answer","text":"בפגישת ההתאמה בודקים את מבנה התורים, הרשאות הצוות, הטפסים ורצף המעקב. כל דרישה רגישה או מקצועית מאושרת מול המוצר לפני הטמעה."}},{"@type":"Question","name":"האם אפשר לנהל ציוד או חדרים?","acceptedAnswer":{"@type":"Answer","text":"בפגישת ההתאמה בודקים את מבנה התורים, הרשאות הצוות, הטפסים ורצף המעקב. כל דרישה רגישה או מקצועית מאושרת מול המוצר לפני הטמעה."}},{"@type":"Question","name":"איך מטפלים רואים את המטופלים שלהם?","acceptedAnswer":{"@type":"Answer","text":"בפגישת ההתאמה בודקים את מבנה התורים, הרשאות הצוות, הטפסים ורצף המעקב. כל דרישה רגישה או מקצועית מאושרת מול המוצר לפני הטמעה."}}]}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=56">
+    <link rel="stylesheet" href="/assets/site.css?v=59">
 </head>
 <body>
 <a class="skip-link" href="#main">דילוג לתוכן</a>
@@ -38,14 +38,52 @@
                             </div>
             <a href="/he/features">יכולות</a>
             <a href="/he/pricing">מחירון</a>
+            <button class="mobile-login-choice" type="button" aria-haspopup="dialog" data-login-choice-open>כניסה למערכת</button>
         </nav>
         <div class="header-actions">
             <a class="language-link" href="/en" hreflang="en">EN</a>
-            <a class="login-link" href="https://bizonline.co.il/user/login.php?lang=he">כניסה למערכת</a>
+            <button class="login-link" type="button" aria-haspopup="dialog" data-login-choice-open>כניסה למערכת</button>
             <a class="button button-small" href="/he/book-a-demo">קביעת הדגמה</a>
         </div>
     </div>
 </header>
+<div class="login-choice-modal" hidden data-login-choice-modal aria-hidden="true">
+    <button class="login-choice-backdrop" type="button" tabindex="-1" aria-label="סגירת חלון הכניסה" data-login-choice-close></button>
+    <section class="login-choice-panel" role="dialog" aria-modal="true" aria-labelledby="login-choice-title" aria-describedby="login-choice-description" tabindex="-1">
+        <header class="login-choice-heading">
+            <div>
+                <span>בחרו את סביבת העבודה שלכם</span>
+                <h2 id="login-choice-title">איך תרצו להיכנס?</h2>
+                <p id="login-choice-description">בחרו את סביבת העבודה המתאימה. הקישור והחשבון הקיימים שלכם נשארים בדיוק כפי שהם.</p>
+            </div>
+            <button class="login-choice-close" type="button" aria-label="סגירת חלון הכניסה" data-login-choice-close>×</button>
+        </header>
+        <div class="login-choice-options">
+            <a class="login-choice-option login-choice-business" href="https://bizonline.co.il/user/login.php?lang=he" data-login-choice-first>
+                <span class="login-choice-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="login-choice-copy">
+                    <small>ניהול העסק</small>
+                    <strong>כניסת בעלי עסקים ומנהלים</strong>
+                    <b>וילות, צימרים, אירוח, ספא, קליניקות ומתחמי אירועים</b>
+                </span>
+                <em aria-hidden="true">←</em>
+            </a>
+            <a class="login-choice-option login-choice-staff" href="https://bizonline.co.il/member/login.php">
+                <span class="login-choice-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="login-choice-copy">
+                    <small>סביבת הצוות</small>
+                    <strong>כניסת מטפלים</strong>
+                    <b>לצפייה ביומן ולניהול העבודה האישית</b>
+                </span>
+                <em aria-hidden="true">←</em>
+            </a>
+        </div>
+        <footer class="login-choice-footer">
+            <span>הכניסה לניהול האתר שמורה לצוות המורשה ואינה מופיעה כאן.</span>
+            <a href="/he/contact">צריכים עזרה בכניסה?</a>
+        </footer>
+    </section>
+</div>
 <div class="world-switcher" data-world-switcher>
     <button class="world-switcher-button" type="button" aria-expanded="false" aria-controls="world-switcher-panel" data-world-switcher-toggle>
         <span class="world-switcher-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
@@ -287,6 +325,6 @@
         </div>
     </div>
 </footer>
-    <script src="/assets/site.js?v=27" defer></script>
+    <script src="/assets/site.js?v=28" defer></script>
 </body>
 </html>

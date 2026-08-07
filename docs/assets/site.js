@@ -45,6 +45,71 @@
         }, { passive: true });
     }
 
+    var loginChoiceModal = document.querySelector('[data-login-choice-modal]');
+    var loginChoiceOpeners = document.querySelectorAll('[data-login-choice-open]');
+    var loginChoiceClosers = document.querySelectorAll('[data-login-choice-close]');
+
+    if (loginChoiceModal && loginChoiceOpeners.length) {
+        var loginChoicePanel = loginChoiceModal.querySelector('.login-choice-panel');
+        var lastLoginChoiceTrigger = null;
+        var setLoginChoiceOpen = function (isOpen, restoreFocus) {
+            loginChoiceModal.hidden = !isOpen;
+            loginChoiceModal.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            document.body.classList.toggle('has-login-choice-open', isOpen);
+            if (isOpen) {
+                if (toggle && menu) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                    menu.classList.remove('is-open');
+                }
+                window.requestAnimationFrame(function () {
+                    loginChoiceModal.classList.add('is-open');
+                    var firstChoice = loginChoiceModal.querySelector('[data-login-choice-first]');
+                    if (firstChoice) firstChoice.focus();
+                });
+                return;
+            }
+            loginChoiceModal.classList.remove('is-open');
+            if (restoreFocus && lastLoginChoiceTrigger) {
+                var focusTarget = lastLoginChoiceTrigger;
+                if (focusTarget.offsetParent === null && toggle) focusTarget = toggle;
+                focusTarget.focus();
+            }
+        };
+
+        Array.prototype.forEach.call(loginChoiceOpeners, function (opener) {
+            opener.addEventListener('click', function () {
+                lastLoginChoiceTrigger = opener;
+                setLoginChoiceOpen(true, false);
+            });
+        });
+
+        Array.prototype.forEach.call(loginChoiceClosers, function (closer) {
+            closer.addEventListener('click', function () { setLoginChoiceOpen(false, true); });
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (loginChoiceModal.hidden) return;
+            if (event.key === 'Escape') {
+                event.preventDefault();
+                setLoginChoiceOpen(false, true);
+                return;
+            }
+            if (event.key === 'Tab' && loginChoicePanel) {
+                var focusable = loginChoicePanel.querySelectorAll('a[href],button:not([disabled])');
+                if (!focusable.length) return;
+                var first = focusable[0];
+                var last = focusable[focusable.length - 1];
+                if (event.shiftKey && document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+    }
+
     var worldSwitcher = document.querySelector('[data-world-switcher]');
     var worldSwitcherToggle = document.querySelector('[data-world-switcher-toggle]');
     var worldSwitcherPanel = document.querySelector('[data-world-switcher-panel]');
