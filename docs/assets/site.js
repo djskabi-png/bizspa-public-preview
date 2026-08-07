@@ -779,6 +779,7 @@
         var demoPanels = demo.querySelectorAll('[data-capability-demo-panel]');
         var demoCanvasPanels = demo.querySelectorAll('[data-capability-canvas-panel]');
         var demoCanvas = demo.querySelector('.live-demo-canvas');
+        var demoHeading = demo.querySelector('[data-capability-demo-heading]');
         var demoMetric = demo.querySelector('[data-capability-demo-metric]');
         var demoSub = demo.querySelector('[data-capability-demo-sub]');
 
@@ -802,6 +803,9 @@
             });
             if (demoMetric && demoTabs[activeIndex].dataset.demoMetric) {
                 demoMetric.textContent = demoTabs[activeIndex].dataset.demoMetric;
+            }
+            if (demoHeading && demoTabs[activeIndex].dataset.demoTitle) {
+                demoHeading.textContent = demoTabs[activeIndex].dataset.demoTitle;
             }
             if (demoSub && demoTabs[activeIndex].dataset.demoSub) {
                 demoSub.textContent = demoTabs[activeIndex].dataset.demoSub;
