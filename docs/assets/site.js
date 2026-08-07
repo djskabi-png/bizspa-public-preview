@@ -45,6 +45,65 @@
         }, { passive: true });
     }
 
+    var businessCounter = document.querySelector('[data-business-counter]');
+    if (businessCounter) {
+        var businessCounterValue = businessCounter.querySelector('[data-business-counter-value]');
+        var businessCounterEndpoint = businessCounter.getAttribute('data-business-counter-endpoint') || '';
+        var businessCounterRefresh = parseInt(businessCounter.getAttribute('data-business-counter-refresh') || '60000', 10);
+        var businessCounterLocale = document.documentElement.lang === 'he' ? 'he-IL' : 'en-US';
+        var businessCounterFormatter = typeof Intl !== 'undefined' && Intl.NumberFormat
+            ? new Intl.NumberFormat(businessCounterLocale)
+            : null;
+        var formatBusinessCount = function (count) {
+            return businessCounterFormatter
+                ? businessCounterFormatter.format(count)
+                : String(count).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        };
+        var updateBusinessCount = function (nextCount) {
+            if (!businessCounterValue || !Number.isFinite(nextCount) || nextCount < 0) return;
+            var currentCount = parseInt(businessCounterValue.getAttribute('data-business-counter-current') || '0', 10);
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (currentCount === nextCount || reduceMotion) {
+                businessCounterValue.textContent = formatBusinessCount(nextCount);
+                businessCounterValue.setAttribute('data-business-counter-current', String(nextCount));
+                return;
+            }
+            var startedAt = null;
+            var duration = 700;
+            var animateCount = function (timestamp) {
+                if (startedAt === null) startedAt = timestamp;
+                var progress = Math.min(1, (timestamp - startedAt) / duration);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                var visibleCount = Math.round(currentCount + ((nextCount - currentCount) * eased));
+                businessCounterValue.textContent = formatBusinessCount(visibleCount);
+                if (progress < 1) {
+                    window.requestAnimationFrame(animateCount);
+                    return;
+                }
+                businessCounterValue.setAttribute('data-business-counter-current', String(nextCount));
+            };
+            window.requestAnimationFrame(animateCount);
+        };
+        var loadBusinessCount = function () {
+            if (!businessCounterEndpoint || !window.fetch) return;
+            window.fetch(businessCounterEndpoint, {
+                credentials: 'same-origin',
+                headers: { 'Accept': 'application/json' },
+            }).then(function (response) {
+                if (!response.ok) throw new Error('Business counter unavailable');
+                return response.json();
+            }).then(function (payload) {
+                if (payload && payload.ok) updateBusinessCount(Number(payload.count));
+            }).catch(function () {
+                businessCounter.classList.add('is-counter-offline');
+            });
+        };
+        loadBusinessCount();
+        if (businessCounterEndpoint) {
+            window.setInterval(loadBusinessCount, Math.max(15000, businessCounterRefresh || 60000));
+        }
+    }
+
     var loginChoiceModal = document.querySelector('[data-login-choice-modal]');
     var loginChoiceOpeners = document.querySelectorAll('[data-login-choice-open]');
     var loginChoiceClosers = document.querySelectorAll('[data-login-choice-close]');
