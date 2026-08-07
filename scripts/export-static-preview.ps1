@@ -73,7 +73,7 @@ $headers = @'
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; media-src 'self'; font-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; media-src 'self'; font-src 'self' data:; frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'
 '@
 [IO.File]::WriteAllText((Join-Path $publicRoot '_headers'), $headers.Trim() + "`n", [Text.UTF8Encoding]::new($false))
 [IO.File]::WriteAllText((Join-Path $publicRoot '.nojekyll'), '', [Text.UTF8Encoding]::new($false))

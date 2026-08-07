@@ -926,6 +926,24 @@
             videoModal.addEventListener('click', function (event) { if (event.target === videoModal) setVideoModal(false); });
             document.addEventListener('keydown', function (event) { if (event.key === 'Escape' && !videoModal.hidden) setVideoModal(false); });
         }
+        var youtubeEmbed = videoBlock.querySelector('[data-youtube-embed]');
+        var youtubePlay = youtubeEmbed ? youtubeEmbed.querySelector('[data-youtube-play]') : null;
+        if (youtubeEmbed && youtubePlay) {
+            youtubePlay.addEventListener('click', function () {
+                var videoId = youtubeEmbed.getAttribute('data-video-id') || '';
+                var videoTitle = youtubeEmbed.getAttribute('data-video-title') || 'BIZonline video';
+                if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
+                var iframe = document.createElement('iframe');
+                iframe.setAttribute('src', 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0');
+                iframe.setAttribute('title', videoTitle);
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+                youtubeEmbed.classList.add('is-playing');
+                while (youtubeEmbed.firstChild) youtubeEmbed.removeChild(youtubeEmbed.firstChild);
+                youtubeEmbed.appendChild(iframe);
+            });
+        }
     });
 
     var screenLightbox = document.querySelector('[data-screen-lightbox]');
