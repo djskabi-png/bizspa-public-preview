@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>BIZonline | Management software for bookings, schedules and clients</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://bizonline.spaplus.co/#organization","name":"BIZonline","legalName":"Spa Plus Websites Ltd.","url":"https://bizonline.spaplus.co/en","logo":"https://bizonline.spaplus.co/assets/media/bizonline-official-logo.webp"},{"@type":"WebSite","@id":"https://bizonline.spaplus.co/#website","name":"BIZonline","url":"https://bizonline.spaplus.co/en","inLanguage":"en","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"SoftwareApplication","@id":"https://bizonline.spaplus.co/#software","name":"BIZonline","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://bizonline.spaplus.co/en","description":"Management software for hospitality, spas and clinics","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"WebPage","@id":"https://bizonline.spaplus.co/en#webpage","name":"BIZonline | Management software for bookings, schedules and clients","description":"BIZonline connects bookings, schedules, clients, teams, payments and reporting in a workspace shaped around the way your business operates.","url":"https://bizonline.spaplus.co/en","inLanguage":"en","isPartOf":{"@id":"https://bizonline.spaplus.co/#website"},"about":{"@id":"https://bizonline.spaplus.co/#software"}}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=64">
+    <link rel="stylesheet" href="/assets/site.css?v=65">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -705,29 +705,143 @@
             </ul>
             <a class="button button-dark" href="/en/mobile-access">See how mobile access works</a>
         </div>
-        <div class="legacy-phone-stage">
-            <figure class="legacy-phone legacy-phone-main">
-                <div><span></span><b></b></div>
-                <div class="legacy-phone-live">
-                    <strong>Calendar and availability</strong>
-                    <div class="phone-day-row"><span>09:00</span><span>10:00</span><span>11:00</span></div>
-                    <button type="button" class="phone-live-booking">Swedish massage, Noa</button>
-                    <button type="button" class="phone-live-booking is-light">Room 2 available</button>
-                    <small>Tap to change status</small>
-                </div>
-                <figcaption>Calendar and availability on mobile</figcaption>
-            </figure>
-            <figure class="legacy-phone legacy-phone-secondary">
-                <div><span></span><b></b></div>
-                <div class="legacy-phone-live legacy-phone-signature">
-                    <strong>Document for signature</strong>
-                    <div class="phone-client-card"><span>Customer</span><b>Maya Israeli</b></div>
-                    <label><span>Terms approval</span><input type="checkbox"></label>
-                    <button type="button">Mark as signed</button>
-                    <small>Interactive illustration</small>
-                </div>
-                <figcaption>Send for signature</figcaption>
-            </figure>
+        <div class="legacy-phone-stage work-anywhere-demo" data-work-anywhere>
+            <div class="work-demo-heading">
+                <div><small>Interactive product demo</small><strong>One workday across every workspace</strong></div>
+                <span>Demonstration data only</span>
+            </div>
+            <div class="work-demo-tabs" role="tablist" aria-label="Choose a business type for the demo">
+                                    <button type="button" role="tab" data-work-world-tab="spa" aria-selected="true" tabindex="0" class="is-active">Spa</button>
+                                    <button type="button" role="tab" data-work-world-tab="clinic" aria-selected="false" tabindex="-1" class="">Clinic</button>
+                                    <button type="button" role="tab" data-work-world-tab="hospitality" aria-selected="false" tabindex="-1" class="">Hospitality</button>
+                                    <button type="button" role="tab" data-work-world-tab="events" aria-selected="false" tabindex="-1" class="">Events</button>
+                            </div>
+            <div class="work-demo-panels">
+                                    <section class="work-demo-panel is-active" role="tabpanel" data-work-world-panel="spa">
+                        <article class="work-demo-manager">
+                            <header><div><span class="work-demo-logo">BIZ</span><strong>Treatment calendar</strong></div><b>18 treatments today</b></header>
+                            <div class="work-demo-manager-tools"><span>Today</span><span>Team 4</span><span>Resources 3</span></div>
+                            <div class="work-demo-schedule" aria-label="Treatment calendar">
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>09:00</time><span><strong>Swedish massage</strong><small>Noa · Room 2</small></span><em>Confirmed</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row is-current" data-workflow-action aria-pressed="false">
+                                        <time>10:15</time><span><strong>Facial treatment</strong><small>Maya · Room 1</small></span><em>In treatment</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>11:30</time><span><strong>Reflexology</strong><small>Yael · Room 3</small></span><em>Waiting</em>
+                                    </button>
+                                                            </div>
+                            <footer><span>3 actions need attention</span><b>Everything is synced</b></footer>
+                        </article>
+                        <article class="work-demo-staff">
+                            <div class="work-demo-phone-top"><time>09:41</time><i></i><b>●●●</b></div>
+                            <small>Next treatment</small>
+                            <strong>Maya, facial treatment</strong>
+                            <span>10:15 · Room 1</span>
+                            <ul><li><i></i>Review health form</li><li><i></i>Prepare treatment room</li><li><i></i>Complete treatment status</li></ul>
+                            <button type="button" data-workflow-action data-label-default="Update task" data-label-complete="Task completed">Update task</button>
+                        </article>
+                        <article class="work-demo-customer">
+                            <span class="work-demo-customer-icon" aria-hidden="true">✓</span>
+                            <div><small>Customer update</small><strong>Maya received an update</strong><p>The booking confirmation and health form were sent to her phone.</p></div>
+                            <b data-workflow-status aria-live="polite">Ready for action</b>
+                        </article>
+                    </section>
+                                    <section class="work-demo-panel" role="tabpanel" data-work-world-panel="clinic" hidden>
+                        <article class="work-demo-manager">
+                            <header><div><span class="work-demo-logo">BIZ</span><strong>Appointment calendar</strong></div><b>12 appointments today</b></header>
+                            <div class="work-demo-manager-tools"><span>Today</span><span>Team 4</span><span>Resources 3</span></div>
+                            <div class="work-demo-schedule" aria-label="Appointment calendar">
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>08:30</time><span><strong>Consultation</strong><small>Dana · Room 1</small></span><em>Arrived</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row is-current" data-workflow-action aria-pressed="false">
+                                        <time>10:00</time><span><strong>Follow-up care</strong><small>Lior · Room 2</small></span><em>Confirmed</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>12:15</time><span><strong>Initial assessment</strong><small>Roni · Room 3</small></span><em>Form sent</em>
+                                    </button>
+                                                            </div>
+                            <footer><span>3 actions need attention</span><b>Everything is synced</b></footer>
+                        </article>
+                        <article class="work-demo-staff">
+                            <div class="work-demo-phone-top"><time>09:41</time><i></i><b>●●●</b></div>
+                            <small>Next client</small>
+                            <strong>Dana, consultation</strong>
+                            <span>08:30 · Room 1</span>
+                            <ul><li><i></i>Review medical form</li><li><i></i>Open treatment plan</li><li><i></i>Schedule follow-up</li></ul>
+                            <button type="button" data-workflow-action data-label-default="Update task" data-label-complete="Task completed">Update task</button>
+                        </article>
+                        <article class="work-demo-customer">
+                            <span class="work-demo-customer-icon" aria-hidden="true">✓</span>
+                            <div><small>Customer update</small><strong>Dana is ready</strong><p>Her form is complete and arrival instructions are on her phone.</p></div>
+                            <b data-workflow-status aria-live="polite">Ready for action</b>
+                        </article>
+                    </section>
+                                    <section class="work-demo-panel" role="tabpanel" data-work-world-panel="hospitality" hidden>
+                        <article class="work-demo-manager">
+                            <header><div><span class="work-demo-logo">BIZ</span><strong>Occupancy calendar</strong></div><b>9 arrivals today</b></header>
+                            <div class="work-demo-manager-tools"><span>Today</span><span>Team 4</span><span>Resources 3</span></div>
+                            <div class="work-demo-schedule" aria-label="Occupancy calendar">
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>11:00</time><span><strong>Vine Suite</strong><small>Levi family · 2 nights</small></span><em>Confirmed</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row is-current" data-workflow-action aria-pressed="false">
+                                        <time>14:00</time><span><strong>Pine Villa</strong><small>Daniel Cohen · 3 nights</small></span><em>Preparing</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>16:30</time><span><strong>Cypress Unit</strong><small>Noa and Ran · 1 night</small></span><em>Deposit paid</em>
+                                    </button>
+                                                            </div>
+                            <footer><span>3 actions need attention</span><b>Everything is synced</b></footer>
+                        </article>
+                        <article class="work-demo-staff">
+                            <div class="work-demo-phone-top"><time>09:41</time><i></i><b>●●●</b></div>
+                            <small>Next arrival</small>
+                            <strong>Levi family, Vine Suite</strong>
+                            <span>11:00 · 2 nights</span>
+                            <ul><li><i></i>Check unit preparation</li><li><i></i>Send entry code</li><li><i></i>Confirm remaining balance</li></ul>
+                            <button type="button" data-workflow-action data-label-default="Update task" data-label-complete="Task completed">Update task</button>
+                        </article>
+                        <article class="work-demo-customer">
+                            <span class="work-demo-customer-icon" aria-hidden="true">✓</span>
+                            <div><small>Customer update</small><strong>The guests were updated</strong><p>Arrival details, entry code and balance were sent to their phone.</p></div>
+                            <b data-workflow-status aria-live="polite">Ready for action</b>
+                        </article>
+                    </section>
+                                    <section class="work-demo-panel" role="tabpanel" data-work-world-panel="events" hidden>
+                        <article class="work-demo-manager">
+                            <header><div><span class="work-demo-logo">BIZ</span><strong>Event board</strong></div><b>6 events this week</b></header>
+                            <div class="work-demo-manager-tools"><span>Today</span><span>Team 4</span><span>Resources 3</span></div>
+                            <div class="work-demo-schedule" aria-label="Event board">
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>17:00</time><span><strong>Company event</strong><small>Studio 2 · 80 guests</small></span><em>Deposit paid</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row is-current" data-workflow-action aria-pressed="false">
+                                        <time>19:30</time><span><strong>Birthday event</strong><small>Rooftop loft · 45 guests</small></span><em>Suppliers approved</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>21:00</time><span><strong>Private event</strong><small>Hall A · 120 guests</small></span><em>Preparing</em>
+                                    </button>
+                                                            </div>
+                            <footer><span>3 actions need attention</span><b>Everything is synced</b></footer>
+                        </article>
+                        <article class="work-demo-staff">
+                            <div class="work-demo-phone-top"><time>09:41</time><i></i><b>●●●</b></div>
+                            <small>Next event</small>
+                            <strong>Company event, Studio 2</strong>
+                            <span>17:00 · 80 guests</span>
+                            <ul><li><i></i>Check room layout</li><li><i></i>Approve suppliers</li><li><i></i>Open team tasks</li></ul>
+                            <button type="button" data-workflow-action data-label-default="Update task" data-label-complete="Task completed">Update task</button>
+                        </article>
+                        <article class="work-demo-customer">
+                            <span class="work-demo-customer-icon" aria-hidden="true">✓</span>
+                            <div><small>Customer update</small><strong>The producer was updated</strong><p>The confirmation, schedule and balance are available on mobile.</p></div>
+                            <b data-workflow-status aria-live="polite">Ready for action</b>
+                        </article>
+                    </section>
+                            </div>
         </div>
     </div>
 </section>
@@ -1083,6 +1197,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=30" defer></script>
+<script src="/assets/site.js?v=31" defer></script>
 </body>
 </html>

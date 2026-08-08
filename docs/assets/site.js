@@ -988,6 +988,53 @@
             button.setAttribute('aria-pressed', button.classList.contains('is-complete') ? 'true' : 'false');
         });
     });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-work-anywhere]'), function (showcase) {
+        var worldTabs = showcase.querySelectorAll('[data-work-world-tab]');
+        var worldPanels = showcase.querySelectorAll('[data-work-world-panel]');
+        var activateWorld = function (nextIndex, focusTab) {
+            Array.prototype.forEach.call(worldTabs, function (tab, index) {
+                var active = index === nextIndex;
+                tab.classList.toggle('is-active', active);
+                tab.setAttribute('aria-selected', active ? 'true' : 'false');
+                tab.setAttribute('tabindex', active ? '0' : '-1');
+                if (active && focusTab) tab.focus();
+            });
+            Array.prototype.forEach.call(worldPanels, function (panel, index) {
+                panel.hidden = index !== nextIndex;
+                panel.classList.toggle('is-active', index === nextIndex);
+            });
+        };
+        Array.prototype.forEach.call(worldTabs, function (tab, index) {
+            tab.addEventListener('click', function () { activateWorld(index, false); });
+            tab.addEventListener('keydown', function (event) {
+                if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight' && event.key !== 'Home' && event.key !== 'End') return;
+                event.preventDefault();
+                var nextIndex = index;
+                if (event.key === 'Home') nextIndex = 0;
+                if (event.key === 'End') nextIndex = worldTabs.length - 1;
+                if (event.key === 'ArrowRight') nextIndex = (index + 1) % worldTabs.length;
+                if (event.key === 'ArrowLeft') nextIndex = (index - 1 + worldTabs.length) % worldTabs.length;
+                activateWorld(nextIndex, true);
+            });
+        });
+        Array.prototype.forEach.call(worldPanels, function (panel) {
+            var status = panel.querySelector('[data-workflow-status]');
+            Array.prototype.forEach.call(panel.querySelectorAll('[data-workflow-action]'), function (action) {
+                action.addEventListener('click', function () {
+                    if (action.classList.contains('work-demo-row')) {
+                        Array.prototype.forEach.call(panel.querySelectorAll('.work-demo-row'), function (row) { row.classList.remove('is-current'); });
+                        action.classList.add('is-current', 'is-complete');
+                        action.setAttribute('aria-pressed', 'true');
+                    } else {
+                        action.classList.add('is-complete');
+                        action.textContent = action.getAttribute('data-label-complete') || action.textContent;
+                    }
+                    panel.classList.add('is-complete');
+                    if (status) status.textContent = document.documentElement.dir === 'rtl' ? 'עודכן בכל המסכים' : 'Updated across all screens';
+                });
+            });
+        });
+    });
     var giftStudio = document.querySelector('[data-gift-studio]');
     if (giftStudio) {
         var giftTypeButtons = giftStudio.querySelectorAll('[data-gift-type]');

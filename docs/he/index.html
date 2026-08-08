@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>ביז אונליין | מערכת לניהול הזמנות, יומן ולקוחות</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://bizonline.spaplus.co/#organization","name":"BIZonline","legalName":"ספא פלוס אתרים בע״מ","url":"https://bizonline.spaplus.co/he","logo":"https://bizonline.spaplus.co/assets/media/bizonline-official-logo.webp"},{"@type":"WebSite","@id":"https://bizonline.spaplus.co/#website","name":"BIZonline","url":"https://bizonline.spaplus.co/he","inLanguage":"he","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"SoftwareApplication","@id":"https://bizonline.spaplus.co/#software","name":"BIZonline","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://bizonline.spaplus.co/he","description":"מערכת ניהול לעסקי אירוח, ספא וקליניקות","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"WebPage","@id":"https://bizonline.spaplus.co/he#webpage","name":"ביז אונליין | מערכת לניהול הזמנות, יומן ולקוחות","description":"ביז אונליין מחברת בין הזמנות, יומן, לקוחות, צוות, תשלומים ודוחות, בסביבת עבודה שנבנית סביב הדרך שבה העסק שלכם באמת פועל.","url":"https://bizonline.spaplus.co/he","inLanguage":"he","isPartOf":{"@id":"https://bizonline.spaplus.co/#website"},"about":{"@id":"https://bizonline.spaplus.co/#software"}}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=64">
+    <link rel="stylesheet" href="/assets/site.css?v=65">
 </head>
 <body>
 <a class="skip-link" href="#main">דילוג לתוכן</a>
@@ -705,29 +705,143 @@
             </ul>
             <a class="button button-dark" href="/he/mobile-access">לראות איך עובדים מכל מקום</a>
         </div>
-        <div class="legacy-phone-stage">
-            <figure class="legacy-phone legacy-phone-main">
-                <div><span></span><b></b></div>
-                <div class="legacy-phone-live">
-                    <strong>יומן וזמינות</strong>
-                    <div class="phone-day-row"><span>09:00</span><span>10:00</span><span>11:00</span></div>
-                    <button type="button" class="phone-live-booking">עיסוי שוודי, נועה</button>
-                    <button type="button" class="phone-live-booking is-light">חדר 2 זמין</button>
-                    <small>לחצו כדי להחליף סטטוס</small>
-                </div>
-                <figcaption>יומן וזמינות בנייד</figcaption>
-            </figure>
-            <figure class="legacy-phone legacy-phone-secondary">
-                <div><span></span><b></b></div>
-                <div class="legacy-phone-live legacy-phone-signature">
-                    <strong>מסמך לחתימה</strong>
-                    <div class="phone-client-card"><span>לקוחה</span><b>מאיה ישראלי</b></div>
-                    <label><span>אישור תנאים</span><input type="checkbox"></label>
-                    <button type="button">סימון חתימה</button>
-                    <small>המחשה אינטראקטיבית</small>
-                </div>
-                <figcaption>שליחת מסמך לחתימה</figcaption>
-            </figure>
+        <div class="legacy-phone-stage work-anywhere-demo" data-work-anywhere>
+            <div class="work-demo-heading">
+                <div><small>המחשה אינטראקטיבית</small><strong>יום עבודה אחד, בכל נקודת עבודה</strong></div>
+                <span>נתוני הדגמה בלבד</span>
+            </div>
+            <div class="work-demo-tabs" role="tablist" aria-label="בחירת סוג העסק להמחשה">
+                                    <button type="button" role="tab" data-work-world-tab="spa" aria-selected="true" tabindex="0" class="is-active">ספא</button>
+                                    <button type="button" role="tab" data-work-world-tab="clinic" aria-selected="false" tabindex="-1" class="">קליניקה</button>
+                                    <button type="button" role="tab" data-work-world-tab="hospitality" aria-selected="false" tabindex="-1" class="">אירוח</button>
+                                    <button type="button" role="tab" data-work-world-tab="events" aria-selected="false" tabindex="-1" class="">אירועים</button>
+                            </div>
+            <div class="work-demo-panels">
+                                    <section class="work-demo-panel is-active" role="tabpanel" data-work-world-panel="spa">
+                        <article class="work-demo-manager">
+                            <header><div><span class="work-demo-logo">BIZ</span><strong>יומן טיפולים</strong></div><b>18 טיפולים היום</b></header>
+                            <div class="work-demo-manager-tools"><span>היום</span><span>צוות 4</span><span>משאבים 3</span></div>
+                            <div class="work-demo-schedule" aria-label="יומן טיפולים">
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>09:00</time><span><strong>עיסוי שוודי</strong><small>נועה · חדר 2</small></span><em>מאושר</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row is-current" data-workflow-action aria-pressed="false">
+                                        <time>10:15</time><span><strong>טיפול פנים</strong><small>מאיה · חדר 1</small></span><em>בטיפול</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>11:30</time><span><strong>רפלקסולוגיה</strong><small>יעל · חדר 3</small></span><em>ממתינה</em>
+                                    </button>
+                                                            </div>
+                            <footer><span>3 פעולות דורשות תשומת לב</span><b>הכול מסונכרן</b></footer>
+                        </article>
+                        <article class="work-demo-staff">
+                            <div class="work-demo-phone-top"><time>09:41</time><i></i><b>●●●</b></div>
+                            <small>הטיפול הבא</small>
+                            <strong>מאיה, טיפול פנים</strong>
+                            <span>10:15 · חדר 1</span>
+                            <ul><li><i></i>בדיקת טופס בריאות</li><li><i></i>הכנת חדר הטיפול</li><li><i></i>עדכון סיום טיפול</li></ul>
+                            <button type="button" data-workflow-action data-label-default="עדכון ביצוע" data-label-complete="המשימה הושלמה">עדכון ביצוע</button>
+                        </article>
+                        <article class="work-demo-customer">
+                            <span class="work-demo-customer-icon" aria-hidden="true">✓</span>
+                            <div><small>עדכון ללקוח</small><strong>מאיה קיבלה עדכון</strong><p>אישור ההזמנה וטופס הבריאות נשלחו לנייד.</p></div>
+                            <b data-workflow-status aria-live="polite">ממתין לפעולה</b>
+                        </article>
+                    </section>
+                                    <section class="work-demo-panel" role="tabpanel" data-work-world-panel="clinic" hidden>
+                        <article class="work-demo-manager">
+                            <header><div><span class="work-demo-logo">BIZ</span><strong>יומן תורים</strong></div><b>12 תורים היום</b></header>
+                            <div class="work-demo-manager-tools"><span>היום</span><span>צוות 4</span><span>משאבים 3</span></div>
+                            <div class="work-demo-schedule" aria-label="יומן תורים">
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>08:30</time><span><strong>פגישת אבחון</strong><small>דנה · חדר 1</small></span><em>הגיעה</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row is-current" data-workflow-action aria-pressed="false">
+                                        <time>10:00</time><span><strong>טיפול המשך</strong><small>ליאור · חדר 2</small></span><em>מאושר</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>12:15</time><span><strong>ייעוץ ראשוני</strong><small>רוני · חדר 3</small></span><em>טופס נשלח</em>
+                                    </button>
+                                                            </div>
+                            <footer><span>3 פעולות דורשות תשומת לב</span><b>הכול מסונכרן</b></footer>
+                        </article>
+                        <article class="work-demo-staff">
+                            <div class="work-demo-phone-top"><time>09:41</time><i></i><b>●●●</b></div>
+                            <small>המטופלת הבאה</small>
+                            <strong>דנה, פגישת אבחון</strong>
+                            <span>08:30 · חדר 1</span>
+                            <ul><li><i></i>מעבר על שאלון רפואי</li><li><i></i>פתיחת תוכנית טיפול</li><li><i></i>קביעת מפגש המשך</li></ul>
+                            <button type="button" data-workflow-action data-label-default="עדכון ביצוע" data-label-complete="המשימה הושלמה">עדכון ביצוע</button>
+                        </article>
+                        <article class="work-demo-customer">
+                            <span class="work-demo-customer-icon" aria-hidden="true">✓</span>
+                            <div><small>עדכון ללקוח</small><strong>דנה מוכנה לפגישה</strong><p>השאלון נקלט והנחיות ההגעה זמינות בנייד.</p></div>
+                            <b data-workflow-status aria-live="polite">ממתין לפעולה</b>
+                        </article>
+                    </section>
+                                    <section class="work-demo-panel" role="tabpanel" data-work-world-panel="hospitality" hidden>
+                        <article class="work-demo-manager">
+                            <header><div><span class="work-demo-logo">BIZ</span><strong>יומן תפוסה</strong></div><b>9 כניסות היום</b></header>
+                            <div class="work-demo-manager-tools"><span>היום</span><span>צוות 4</span><span>משאבים 3</span></div>
+                            <div class="work-demo-schedule" aria-label="יומן תפוסה">
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>11:00</time><span><strong>סוויטת גפן</strong><small>משפחת לוי · 2 לילות</small></span><em>מאושר</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row is-current" data-workflow-action aria-pressed="false">
+                                        <time>14:00</time><span><strong>וילה אורן</strong><small>דניאל כהן · 3 לילות</small></span><em>בהכנה</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>16:30</time><span><strong>יחידת ברוש</strong><small>נועה ורן · לילה אחד</small></span><em>מקדמה שולמה</em>
+                                    </button>
+                                                            </div>
+                            <footer><span>3 פעולות דורשות תשומת לב</span><b>הכול מסונכרן</b></footer>
+                        </article>
+                        <article class="work-demo-staff">
+                            <div class="work-demo-phone-top"><time>09:41</time><i></i><b>●●●</b></div>
+                            <small>ההגעה הבאה</small>
+                            <strong>משפחת לוי, סוויטת גפן</strong>
+                            <span>11:00 · 2 לילות</span>
+                            <ul><li><i></i>בדיקת הכנת היחידה</li><li><i></i>שליחת קוד כניסה</li><li><i></i>אישור יתרת תשלום</li></ul>
+                            <button type="button" data-workflow-action data-label-default="עדכון ביצוע" data-label-complete="המשימה הושלמה">עדכון ביצוע</button>
+                        </article>
+                        <article class="work-demo-customer">
+                            <span class="work-demo-customer-icon" aria-hidden="true">✓</span>
+                            <div><small>עדכון ללקוח</small><strong>האורחים קיבלו אישור</strong><p>פרטי ההגעה, הקוד והיתרה נשלחו ישירות לנייד.</p></div>
+                            <b data-workflow-status aria-live="polite">ממתין לפעולה</b>
+                        </article>
+                    </section>
+                                    <section class="work-demo-panel" role="tabpanel" data-work-world-panel="events" hidden>
+                        <article class="work-demo-manager">
+                            <header><div><span class="work-demo-logo">BIZ</span><strong>לוח אירועים</strong></div><b>6 אירועים השבוע</b></header>
+                            <div class="work-demo-manager-tools"><span>היום</span><span>צוות 4</span><span>משאבים 3</span></div>
+                            <div class="work-demo-schedule" aria-label="לוח אירועים">
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>17:00</time><span><strong>אירוע חברה</strong><small>סטודיו 2 · 80 אורחים</small></span><em>מקדמה שולמה</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row is-current" data-workflow-action aria-pressed="false">
+                                        <time>19:30</time><span><strong>יום הולדת</strong><small>לופט גג · 45 אורחים</small></span><em>ספקים אושרו</em>
+                                    </button>
+                                                                    <button type="button" class="work-demo-row" data-workflow-action aria-pressed="false">
+                                        <time>21:00</time><span><strong>אירוע פרטי</strong><small>אולם א · 120 אורחים</small></span><em>בהכנה</em>
+                                    </button>
+                                                            </div>
+                            <footer><span>3 פעולות דורשות תשומת לב</span><b>הכול מסונכרן</b></footer>
+                        </article>
+                        <article class="work-demo-staff">
+                            <div class="work-demo-phone-top"><time>09:41</time><i></i><b>●●●</b></div>
+                            <small>האירוע הבא</small>
+                            <strong>אירוע חברה, סטודיו 2</strong>
+                            <span>17:00 · 80 אורחים</span>
+                            <ul><li><i></i>בדיקת סידור האולם</li><li><i></i>אישור ספקים</li><li><i></i>פתיחת משימות צוות</li></ul>
+                            <button type="button" data-workflow-action data-label-default="עדכון ביצוע" data-label-complete="המשימה הושלמה">עדכון ביצוע</button>
+                        </article>
+                        <article class="work-demo-customer">
+                            <span class="work-demo-customer-icon" aria-hidden="true">✓</span>
+                            <div><small>עדכון ללקוח</small><strong>מפיקת האירוע עודכנה</strong><p>האישור, לוח הזמנים והיתרה זמינים בנייד.</p></div>
+                            <b data-workflow-status aria-live="polite">ממתין לפעולה</b>
+                        </article>
+                    </section>
+                            </div>
         </div>
     </div>
 </section>
@@ -1083,6 +1197,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=30" defer></script>
+<script src="/assets/site.js?v=31" defer></script>
 </body>
 </html>
