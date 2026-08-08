@@ -1103,6 +1103,7 @@
         var videoFrame = videoBlock.querySelector('[data-world-video-frame]');
         var videoCaption = videoBlock.querySelector('[data-world-video-caption]');
         var screenImage = videoBlock.querySelector('[data-world-screen-image]');
+        var screenMobileSource = videoBlock.querySelector('[data-world-screen-mobile-source]');
         var videoPlay = videoBlock.querySelector('[data-world-video-play]');
         var videoModal = videoBlock.querySelector('[data-world-video-modal]');
         var videoClose = videoBlock.querySelector('[data-world-video-close]');
@@ -1118,11 +1119,13 @@
             if (videoCaption && videoTabs[activeIndex]) videoCaption.textContent = videoTabs[activeIndex].textContent.replace(/^0\d\s*/, '');
             if (screenImage && videoTabs[activeIndex]) {
                 var nextScreen = videoTabs[activeIndex].getAttribute('data-world-screen-src');
+                var nextMobileScreen = videoTabs[activeIndex].getAttribute('data-world-screen-mobile-src');
                 var nextAlt = videoTabs[activeIndex].getAttribute('data-world-screen-alt');
                 if (nextScreen && screenImage.getAttribute('src') !== nextScreen) {
                     screenImage.style.opacity = '0';
                     window.setTimeout(function () {
                         screenImage.setAttribute('src', nextScreen);
+                        if (screenMobileSource && nextMobileScreen) screenMobileSource.setAttribute('srcset', nextMobileScreen);
                         screenImage.setAttribute('alt', nextAlt || '');
                         screenImage.style.opacity = '1';
                     }, 120);
@@ -1206,8 +1209,11 @@
             document.body.classList.toggle('has-modal-open', isOpen);
             if (isOpen && trigger) {
                 screenLightboxReturn = trigger;
-                screenLightbox.classList.toggle('is-mobile-screen', trigger.classList.contains('is-mobile-screen'));
-                screenLightboxImage.setAttribute('src', trigger.getAttribute('data-screen-src') || '');
+                var mobileLightboxSource = trigger.getAttribute('data-screen-mobile-src');
+                var desktopLightboxSource = trigger.getAttribute('data-screen-src');
+                var useMobileLightbox = window.innerWidth <= 700 && mobileLightboxSource;
+                screenLightbox.classList.toggle('is-mobile-screen', Boolean(useMobileLightbox));
+                screenLightboxImage.setAttribute('src', useMobileLightbox ? mobileLightboxSource : (desktopLightboxSource || ''));
                 screenLightboxImage.setAttribute('alt', trigger.getAttribute('data-screen-alt') || '');
                 screenLightboxClose.focus();
             } else if (!isOpen && screenLightboxReturn) {
