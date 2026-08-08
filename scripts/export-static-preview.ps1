@@ -41,10 +41,12 @@ foreach ($route in $routes) {
     }
     if ($response.StatusCode -ne 200) { throw "Unexpected status for ${path}: $($response.StatusCode)" }
     $html = [string] $response.Content
+    $robotsValue = if ([bool] $route.noindex) { 'noindex, nofollow' } else { 'index, follow' }
+    $robotsTag = '<meta name="robots" content="' + $robotsValue + '">'
     if ($html -notmatch '(?i)<meta\s+name=["'']robots["'']') {
-        $html = $html -replace '(?i)</head>', '<meta name="robots" content="noindex, nofollow"></head>'
+        $html = $html -replace '(?i)</head>', ($robotsTag + '</head>')
     } else {
-        $html = $html -replace '(?i)<meta\s+name=["'']robots["''][^>]*>', '<meta name="robots" content="noindex, nofollow">'
+        $html = $html -replace '(?i)<meta\s+name=["'']robots["''][^>]*>', $robotsTag
     }
     if ($path -notmatch '/book-a-demo/?$') {
         $html = $html -replace '(?i)<button([^>]*type=["'']submit["''][^>]*)>', '<button$1 disabled aria-disabled="true">'
@@ -57,7 +59,7 @@ foreach ($route in $routes) {
 }
 
 Copy-Item -LiteralPath (Join-Path $sourceSite 'assets') -Destination (Join-Path $publicRoot 'assets') -Recurse
-$sitemapEntries = foreach ($route in $routes) {
+$sitemapEntries = foreach ($route in $routes | Where-Object { -not [bool] $_.noindex }) {
     $path = [string] $route.path
     $locale = if ($path -match '^/en(?:/|$)') { 'en' } else { 'he' }
     $alternateLocale = if ($locale -eq 'he') { 'en' } else { 'he' }
@@ -66,7 +68,7 @@ $sitemapEntries = foreach ($route in $routes) {
 }
 $sitemap = "<?xml version=`"1.0`" encoding=`"UTF-8`"?>`n<urlset xmlns=`"http://www.sitemaps.org/schemas/sitemap/0.9`" xmlns:xhtml=`"http://www.w3.org/1999/xhtml`">`n$($sitemapEntries -join "`n")`n</urlset>`n"
 [IO.File]::WriteAllText((Join-Path $publicRoot 'sitemap.xml'), $sitemap, [Text.UTF8Encoding]::new($false))
-[IO.File]::WriteAllText((Join-Path $publicRoot 'robots.txt'), "User-agent: *`nDisallow: /`nSitemap: https://$customDomain/sitemap.xml`n", [Text.UTF8Encoding]::new($false))
+[IO.File]::WriteAllText((Join-Path $publicRoot 'robots.txt'), "User-agent: *`nAllow: /`nSitemap: https://$customDomain/sitemap.xml`n", [Text.UTF8Encoding]::new($false))
 $headers = @'
 /*
   X-Content-Type-Options: nosniff
