@@ -526,7 +526,7 @@ h3 { font-size: 1.45rem; }
 .breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 48px; color: var(--muted); font-size: .75rem; }
 .breadcrumbs b { color: var(--ink); }
 .global-breadcrumbs{display:flex;align-items:center;flex-wrap:wrap;gap:9px;padding-top:18px;padding-bottom:10px;color:#6d8385;font-size:.72rem;line-height:1.4}.global-breadcrumbs a{color:#537477;text-decoration:none}.global-breadcrumbs a:hover{text-decoration:underline;text-underline-offset:3px}.global-breadcrumbs b{max-width:min(620px,65vw);overflow:hidden;color:#173d40;font-weight:800;text-overflow:ellipsis;white-space:nowrap}.global-breadcrumbs span{color:#9eb1b2}
-@media(max-width:640px){.global-breadcrumbs{gap:7px;padding-top:12px;padding-bottom:7px;font-size:.66rem}.global-breadcrumbs b{max-width:54vw}}
+@media(max-width:640px){.global-breadcrumbs{gap:7px;padding-top:12px;padding-bottom:9px;font-size:.66rem}.global-breadcrumbs b{max-width:calc(100vw - 132px);overflow:visible;text-overflow:clip;white-space:normal}}
 .niche-hero h1 { font-size: clamp(2.8rem, 6.2vw, 5.8rem); }
 .niche-lead { max-width: 760px; color: var(--muted); font-size: 1.18rem; }
 .niche-summary { padding: 31px; border: 1px solid rgba(255,255,255,.76); border-radius: var(--radius); background: rgba(255,255,255,.8); box-shadow: var(--shadow); }
