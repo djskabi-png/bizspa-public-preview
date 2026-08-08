@@ -1392,17 +1392,75 @@
         var filters = Array.prototype.slice.call(testimonials.querySelectorAll('[data-testimonial-filter]'));
         var previous = testimonials.querySelector('[data-testimonial-prev]');
         var next = testimonials.querySelector('[data-testimonial-next]');
+        var counter = testimonials.querySelector('[data-testimonial-counter]');
+        var emptyState = testimonials.querySelector('[data-testimonial-empty]');
         var activeIndex = 0;
+        var scrollFrame = null;
 
         var visibleCards = function () {
             return cards.filter(function (card) { return !card.hidden; });
         };
 
+        var cardsPerView = function () {
+            if (window.innerWidth <= 620) return 1;
+            if (window.innerWidth <= 920) return 2;
+            return 3;
+        };
+
+        var maximumIndex = function () {
+            return Math.max(0, visibleCards().length - cardsPerView());
+        };
+
+        var updateArrows = function () {
+            var currentCards = visibleCards();
+            var maximum = maximumIndex();
+            if (previous) previous.disabled = !currentCards.length || activeIndex <= 0;
+            if (next) next.disabled = !currentCards.length || activeIndex >= maximum;
+            if (emptyState) emptyState.hidden = currentCards.length > 0;
+            if (counter) {
+                var ofLabel = counter.getAttribute('data-of-label') || 'of';
+                if (!currentCards.length) {
+                    counter.textContent = '0 ' + ofLabel + ' 0';
+                } else {
+                    var first = activeIndex + 1;
+                    var last = Math.min(currentCards.length, activeIndex + cardsPerView());
+                    counter.textContent = first === last
+                        ? first + ' ' + ofLabel + ' ' + currentCards.length
+                        : first + ' ' + (document.documentElement.dir === 'rtl' ? 'עד' : 'to') + ' ' + last + ' ' + ofLabel + ' ' + currentCards.length;
+                }
+            }
+        };
+
+        var syncIndexFromScroll = function () {
+            scrollFrame = null;
+            var currentCards = visibleCards();
+            if (!currentCards.length) {
+                activeIndex = 0;
+                updateArrows();
+                return;
+            }
+            var trackRect = track.getBoundingClientRect();
+            var rtl = document.documentElement.dir === 'rtl';
+            var closestIndex = 0;
+            var closestDistance = Infinity;
+            currentCards.forEach(function (card, index) {
+                var cardRect = card.getBoundingClientRect();
+                var distance = Math.abs(rtl ? cardRect.right - trackRect.right : cardRect.left - trackRect.left);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+            activeIndex = Math.max(0, Math.min(closestIndex, maximumIndex()));
+            updateArrows();
+        };
+
         var focusCard = function (index) {
             var currentCards = visibleCards();
             if (!currentCards.length) return;
-            activeIndex = (index + currentCards.length) % currentCards.length;
+            activeIndex = Math.max(0, Math.min(index, maximumIndex()));
             currentCards[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+            updateArrows();
         };
 
         filters.forEach(function (button) {
@@ -1415,30 +1473,22 @@
                 });
                 cards.forEach(function (card) {
                     card.hidden = category !== 'all' && card.getAttribute('data-category') !== category;
-                    card.classList.remove('is-expanded');
-                    var more = card.querySelector('[data-testimonial-more]');
-                    if (more) {
-                        more.textContent = more.getAttribute('data-closed-label') || '';
-                        more.setAttribute('aria-expanded', 'false');
-                    }
                 });
                 activeIndex = 0;
                 focusCard(0);
             });
         });
 
-        cards.forEach(function (card) {
-            var more = card.querySelector('[data-testimonial-more]');
-            if (!more) return;
-            more.setAttribute('aria-expanded', 'false');
-            more.addEventListener('click', function () {
-                var expanded = card.classList.toggle('is-expanded');
-                more.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-                more.textContent = expanded ? (more.getAttribute('data-open-label') || '') : (more.getAttribute('data-closed-label') || '');
-            });
-        });
-
         if (previous) previous.addEventListener('click', function () { focusCard(activeIndex - 1); });
         if (next) next.addEventListener('click', function () { focusCard(activeIndex + 1); });
+        track.addEventListener('scroll', function () {
+            if (scrollFrame !== null) window.cancelAnimationFrame(scrollFrame);
+            scrollFrame = window.requestAnimationFrame(syncIndexFromScroll);
+        }, { passive: true });
+        window.addEventListener('resize', function () {
+            activeIndex = Math.min(activeIndex, maximumIndex());
+            updateArrows();
+        });
+        updateArrows();
     });
 }());
