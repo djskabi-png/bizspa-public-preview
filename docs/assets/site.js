@@ -1206,10 +1206,12 @@
             document.body.classList.toggle('has-modal-open', isOpen);
             if (isOpen && trigger) {
                 screenLightboxReturn = trigger;
+                screenLightbox.classList.toggle('is-mobile-screen', trigger.classList.contains('is-mobile-screen'));
                 screenLightboxImage.setAttribute('src', trigger.getAttribute('data-screen-src') || '');
                 screenLightboxImage.setAttribute('alt', trigger.getAttribute('data-screen-alt') || '');
                 screenLightboxClose.focus();
             } else if (!isOpen && screenLightboxReturn) {
+                screenLightbox.classList.remove('is-mobile-screen');
                 screenLightboxReturn.focus();
             }
         };
