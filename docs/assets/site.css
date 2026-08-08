@@ -196,7 +196,7 @@ h3 { font-size: 1.45rem; }
 .business-proof { position: relative; overflow: hidden; padding: clamp(64px, 7vw, 102px) 0; background: #0d3a3e; color: #fff; }
 .business-proof::before { content: ""; position: absolute; width: 620px; height: 620px; top: -430px; inset-inline-start: -90px; border-radius: 50%; background: radial-gradient(circle, rgba(26,190,198,.28), rgba(26,190,198,0) 69%); pointer-events: none; }
 .business-proof::after { content: ""; position: absolute; inset: auto 0 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(103,229,231,.48), transparent); }
-.business-proof-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(300px,.8fr) minmax(520px,1.2fr); align-items: center; gap: clamp(46px,7vw,110px); }
+.business-proof-inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(300px,.8fr) minmax(520px,1.2fr); align-items: center; column-gap: clamp(46px,7vw,110px); row-gap: clamp(34px,4vw,56px); }
 .business-proof-number { min-height: 260px; display: grid; align-content: center; justify-items: start; padding: 0; border: 0; }
 .business-proof-number span { color: #8ae4e6; font-size: .82rem; font-weight: 850; letter-spacing: .04em; }
 .business-proof-number strong { display: block; margin: 2px 0 -8px; color: #fff; font-size: clamp(6.1rem,11vw,10rem); font-weight: 850; line-height: .98; letter-spacing: -.055em; font-variant-numeric: tabular-nums; white-space: nowrap; unicode-bidi: isolate; }
@@ -205,7 +205,7 @@ h3 { font-size: 1.45rem; }
 .business-proof-eyebrow { margin: 0 0 14px; color: #62d9dd; font-size: .8rem; font-weight: 850; }
 .business-proof-copy h2 { max-width: 730px; margin: 0 0 22px; color: #fff; font-size: clamp(2.65rem,4.8vw,5.15rem); font-weight: 800; line-height: 1.02; letter-spacing: -.045em; }
 .business-proof-copy > p:not(.business-proof-eyebrow) { max-width: 680px; margin: 0; color: #c9e1e2; font-size: clamp(1rem,1.5vw,1.18rem); line-height: 1.8; }
-.business-segment-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; margin-top: clamp(18px,3vw,34px); }
+.business-segment-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; margin-top: 0; }
 .business-segment-card { --segment-accent: #27c5cb; --segment-fade: rgba(39,197,203,.2); min-width: 0; position: relative; display: flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(255,255,255,.16); border-radius: 25px; background: rgba(255,255,255,.07); color: #fff; text-decoration: none; box-shadow: 0 24px 52px rgba(2,24,27,.18); transition: transform .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease; }
 .business-segment-card--clinic { --segment-accent: #77d9bf; --segment-fade: rgba(119,217,191,.2); }
 .business-segment-card--hospitality { --segment-accent: #58b9ea; --segment-fade: rgba(88,185,234,.2); }
