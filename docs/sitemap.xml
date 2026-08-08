@@ -229,6 +229,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://bizonline.spaplus.co/en/about" />
   </url>
   <url>
+    <loc>https://bizonline.spaplus.co/he/site-map</loc>
+    <lastmod>2026-08-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="he" href="https://bizonline.spaplus.co/he/site-map" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://bizonline.spaplus.co/en/site-map" />
+  </url>
+  <url>
     <loc>https://bizonline.spaplus.co/en</loc>
     <lastmod>2026-08-08</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bizonline.spaplus.co/en" />
@@ -455,5 +461,11 @@
     <lastmod>2026-08-08</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://bizonline.spaplus.co/en/about" />
     <xhtml:link rel="alternate" hreflang="he" href="https://bizonline.spaplus.co/he/about" />
+  </url>
+  <url>
+    <loc>https://bizonline.spaplus.co/en/site-map</loc>
+    <lastmod>2026-08-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bizonline.spaplus.co/en/site-map" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://bizonline.spaplus.co/he/site-map" />
   </url>
 </urlset>

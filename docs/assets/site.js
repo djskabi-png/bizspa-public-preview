@@ -1494,3 +1494,45 @@
         updateArrows();
     });
 }());
+
+(function () {
+    var directories = document.querySelectorAll('[data-site-map-directory]');
+    if (!directories.length) return;
+
+    directories.forEach(function (directory) {
+        var input = document.querySelector('[data-site-map-search]');
+        var count = document.querySelector('[data-site-map-count]');
+        var empty = directory.querySelector('[data-site-map-empty]');
+        var items = Array.prototype.slice.call(directory.querySelectorAll('[data-site-map-item]'));
+        var groups = Array.prototype.slice.call(directory.querySelectorAll('[data-site-map-group]'));
+
+        var normalize = function (value) {
+            return (value || '').toLocaleLowerCase().replace(/\s+/g, ' ').trim();
+        };
+
+        var update = function () {
+            var query = normalize(input ? input.value : '');
+            var visibleCount = 0;
+
+            items.forEach(function (item) {
+                var searchable = normalize(item.getAttribute('data-search-text') || item.textContent);
+                var visible = query === '' || searchable.indexOf(query) !== -1;
+                item.hidden = !visible;
+                if (visible) visibleCount += 1;
+            });
+
+            groups.forEach(function (group) {
+                var hasVisibleItem = Array.prototype.some.call(group.querySelectorAll('[data-site-map-item]'), function (item) {
+                    return !item.hidden;
+                });
+                group.hidden = !hasVisibleItem;
+            });
+
+            if (count) count.textContent = String(visibleCount);
+            if (empty) empty.hidden = visibleCount !== 0;
+        };
+
+        if (input) input.addEventListener('input', update);
+        update();
+    });
+}());
