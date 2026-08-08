@@ -215,8 +215,7 @@ h3 { font-size: 1.45rem; }
 .business-segment-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,transparent 52%,rgba(5,32,35,.63)); pointer-events: none; }
 .business-segment-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(.95) contrast(.98); transition: transform .55s cubic-bezier(.2,.7,.2,1),filter .3s ease; }
 .business-segment-card:hover .business-segment-media img,.business-segment-card:focus-visible .business-segment-media img { transform: scale(1.045); filter: saturate(1.04) contrast(1.02); }
-.business-segment-card--spa .business-segment-media img { object-position: 42% 51%; transform: scale(1.2); }
-.business-segment-card--spa:hover .business-segment-media img,.business-segment-card--spa:focus-visible .business-segment-media img { transform: scale(1.25); }
+.business-segment-card--spa .business-segment-media img { object-position: center 52%; }
 .business-segment-card--clinic .business-segment-media img { object-position: center 58%; }
 .business-segment-card--hospitality .business-segment-media img { object-position: center 55%; }
 .business-segment-card--events .business-segment-media img { object-position: center 48%; }
