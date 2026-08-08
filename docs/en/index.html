@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>BIZonline | Management software for bookings, schedules and clients</title>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://bizonline.spaplus.co/#organization","name":"BIZonline","legalName":"Spa Plus Websites Ltd.","url":"https://bizonline.spaplus.co/en","logo":"https://bizonline.spaplus.co/assets/media/bizonline-official-logo.webp"},{"@type":"WebSite","@id":"https://bizonline.spaplus.co/#website","name":"BIZonline","url":"https://bizonline.spaplus.co/en","inLanguage":"en","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"SoftwareApplication","@id":"https://bizonline.spaplus.co/#software","name":"BIZonline","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://bizonline.spaplus.co/en","description":"Management software for hospitality, spas and clinics","publisher":{"@id":"https://bizonline.spaplus.co/#organization"}},{"@type":"WebPage","@id":"https://bizonline.spaplus.co/en#webpage","name":"BIZonline | Management software for bookings, schedules and clients","description":"BIZonline connects bookings, schedules, clients, teams, payments and reporting in a workspace shaped around the way your business operates.","url":"https://bizonline.spaplus.co/en","inLanguage":"en","isPartOf":{"@id":"https://bizonline.spaplus.co/#website"},"about":{"@id":"https://bizonline.spaplus.co/#software"}}]}</script>
-    <link rel="stylesheet" href="/assets/site.css?v=60">
+    <link rel="stylesheet" href="/assets/site.css?v=61">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -688,19 +688,331 @@
     </div>
 </section>
 
-<section class="customer-voices" aria-labelledby="customer-voices-title">
+<section class="customer-stories" id="customer-stories" aria-labelledby="customer-stories-title" data-testimonials>
     <div class="shell">
-        <div class="section-heading split-heading">
+        <div class="customer-stories-heading">
             <div>
-                <h2 id="customer-voices-title">What changes when the operation connects.</h2>
+                <p class="eyebrow">Customer stories</p>
+                <h2 id="customer-stories-title">The businesses running their day with BIZ.</h2>
+                <p>Real voices from hospitality and spa owners using the platform. Filter, browse and open every story in full.</p>
             </div>
-            <p>Three workflows you can see and verify in the product demo.</p>
+            <div class="customer-stories-controls">
+                <div class="customer-stories-filters" role="group" aria-label="Filter testimonials by business world">
+                    <button type="button" class="is-active" data-testimonial-filter="all" aria-pressed="true">All</button>
+                    <button type="button" data-testimonial-filter="spa" aria-pressed="false">Spa and clinics</button>
+                    <button type="button" data-testimonial-filter="hospitality" aria-pressed="false">Hospitality</button>
+                </div>
+                <div class="customer-stories-arrows">
+                    <button type="button" data-testimonial-prev aria-label="Previous testimonial"><span aria-hidden="true">←</span></button>
+                    <button type="button" data-testimonial-next aria-label="Next testimonial"><span aria-hidden="true">→</span></button>
+                </div>
+            </div>
         </div>
-        <div class="customer-voices-grid">
-            <blockquote><p>A booking, resource and team member appear in one operational view instead of being split across tools.</p><cite>Calendar and operations</cite></blockquote>
-            <blockquote><p>Packages, gift cards and memberships connect to the customer, payment and redemption in one flow.</p><cite>Sales and retention</cite></blockquote>
-            <blockquote><p>Every inquiry and follow-up is kept in a clear journey so the team can see what happened and what comes next.</p><cite>Leads and service</cite></blockquote>
+        <div class="customer-stories-viewport">
+            <div class="customer-stories-track" data-testimonial-track>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">01</span>
+                        </div>
+                        <p data-testimonial-quote>“The system is quick and easy to use, and it captures all the details we need from a guest. The reservations list and signature flow are especially helpful. Highly recommended.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Vered</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">02</span>
+                        </div>
+                        <p data-testimonial-quote>“I thought technology would be difficult for me, but BIZ was clearly designed for every age group. Creating a booking has never been this fast and easy.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Zehava</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">03</span>
+                        </div>
+                        <p data-testimonial-quote>“A complete booking calendar, especially after the latest upgrade. It is convenient for customer communication, and sending messages by WhatsApp and email is a brilliant addition.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Maor</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">04</span>
+                        </div>
+                        <p data-testimonial-quote>“The experience is excellent. The booking calendar is always available, guests enjoy using it, and it presents the business professionally while remaining simple to operate.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Liron</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">05</span>
+                        </div>
+                        <p data-testimonial-quote>“An excellent calendar built for accommodation owners. It makes everything feel simple for both the property and the guest, and helps us stay in control of bookings and accounts.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Eitan</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">06</span>
+                        </div>
+                        <p data-testimonial-quote>“An excellent booking calendar that answers every need. It stays updated, is easy to use and comes with fast, helpful service. Highly recommended.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Maor</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">07</span>
+                        </div>
+                        <p data-testimonial-quote>“This is the best and easiest booking calendar I have worked with. Bookings are created quickly, and it has everything I need for the business.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Sharon</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">08</span>
+                        </div>
+                        <p data-testimonial-quote>“BIZonline is an excellent, detailed booking calendar that is easy to operate. I use another calendar as well, and BIZ is much better.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Micha</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">09</span>
+                        </div>
+                        <p data-testimonial-quote>“The calendar is accessible and easy to use on both mobile and desktop. Information is quick to retrieve, every event is easy to follow, and everything stays organized.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Svetlana</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">10</span>
+                        </div>
+                        <p data-testimonial-quote>“BIZonline is a strong business management platform that combines convenience with simplicity. Its clear, friendly interface is easy to learn and navigate.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Shnir</strong><span>Hospitality owner in Israel</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="hospitality">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"></path><path d="M8 20v-6h8v6"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Hospitality world</span>
+                            <span class="customer-story-number" aria-hidden="true">11</span>
+                        </div>
+                        <p data-testimonial-quote>“We have been customers for more than two years and are very satisfied. The platform is friendly, with one-click signatures, card payments and organized booking follow-up. Above all, the service is outstanding.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Shai</strong><span>Ahuzat Luz</span></div>
+                            <a href="https://bizonline.co.il/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="spa">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M12 20c4-2 7-5.2 7-9.1A4.1 4.1 0 0 0 12 8a4.1 4.1 0 0 0-7 2.9C5 14.8 8 18 12 20Z"></path><path d="M12 8c-.3-2.3.7-4 3-5"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Spa world</span>
+                            <span class="customer-story-number" aria-hidden="true">12</span>
+                        </div>
+                        <p data-testimonial-quote>“I have tried several management systems that simply did not understand the spa world. Switching to Biz Spa was the best move I made in the past two years. The fast response, purpose-built features, online booking and constant upgrades make it work for a real spa.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Roy</strong><span>Flamingo Spa</span></div>
+                            <a href="https://bizspa.com/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="spa">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M12 20c4-2 7-5.2 7-9.1A4.1 4.1 0 0 0 12 8a4.1 4.1 0 0 0-7 2.9C5 14.8 8 18 12 20Z"></path><path d="M12 8c-.3-2.3.7-4 3-5"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Spa world</span>
+                            <span class="customer-story-number" aria-hidden="true">13</span>
+                        </div>
+                        <p data-testimonial-quote>“Biz Spa is the most professional and efficient system we have used. It keeps everything organized, fast and fully online, saves time, reduces mistakes and lets us manage bookings around the clock.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Guy Nadler</strong><span>Spa Manager, Kempinski Hotel</span></div>
+                            <a href="https://bizspa.com/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="spa">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M12 20c4-2 7-5.2 7-9.1A4.1 4.1 0 0 0 12 8a4.1 4.1 0 0 0-7 2.9C5 14.8 8 18 12 20Z"></path><path d="M12 8c-.3-2.3.7-4 3-5"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Spa world</span>
+                            <span class="customer-story-number" aria-hidden="true">14</span>
+                        </div>
+                        <p data-testimonial-quote>“I used to manage our entire spa schedule in a notebook. After switching to Biz Spa, everything became faster, clearer and always available. It feels like having an extra hand running the spa with me.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Tamir Zranki</strong><span>Zamarin Spa Hotel</span></div>
+                            <a href="https://bizspa.com/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="spa">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M12 20c4-2 7-5.2 7-9.1A4.1 4.1 0 0 0 12 8a4.1 4.1 0 0 0-7 2.9C5 14.8 8 18 12 20Z"></path><path d="M12 8c-.3-2.3.7-4 3-5"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Spa world</span>
+                            <span class="customer-story-number" aria-hidden="true">15</span>
+                        </div>
+                        <p data-testimonial-quote>“Biz Spa helped me manage the spa in a far more professional and organized way. Everything is digital, with less paperwork and more revenue. Highly recommended.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Adam Opolski</strong><span>The Spa, Sam &amp; Blondi Hotel</span></div>
+                            <a href="https://bizspa.com/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="spa">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M12 20c4-2 7-5.2 7-9.1A4.1 4.1 0 0 0 12 8a4.1 4.1 0 0 0-7 2.9C5 14.8 8 18 12 20Z"></path><path d="M12 8c-.3-2.3.7-4 3-5"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Spa world</span>
+                            <span class="customer-story-number" aria-hidden="true">16</span>
+                        </div>
+                        <p data-testimonial-quote>“Everything is online and easy to control remotely. As the manager of a large spa, I can oversee the schedule from anywhere and receive online bookings with accurate therapist matching. It is precise, convenient and highly effective.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Shir</strong><span>Manager, Yama Spa</span></div>
+                            <a href="https://bizspa.com/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="spa">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M12 20c4-2 7-5.2 7-9.1A4.1 4.1 0 0 0 12 8a4.1 4.1 0 0 0-7 2.9C5 14.8 8 18 12 20Z"></path><path d="M12 8c-.3-2.3.7-4 3-5"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Spa world</span>
+                            <span class="customer-story-number" aria-hidden="true">17</span>
+                        </div>
+                        <p data-testimonial-quote>“From inquiries to payments and reports, everything is organized, clear and running smoothly in one system. Onboarding was fast, the team is incredibly supportive and the system simply works.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Assil</strong><span>Hacienda Spa</span></div>
+                            <a href="https://bizspa.com/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="spa">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M12 20c4-2 7-5.2 7-9.1A4.1 4.1 0 0 0 12 8a4.1 4.1 0 0 0-7 2.9C5 14.8 8 18 12 20Z"></path><path d="M12 8c-.3-2.3.7-4 3-5"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Spa world</span>
+                            <span class="customer-story-number" aria-hidden="true">18</span>
+                        </div>
+                        <p data-testimonial-quote>“BIZ takes the stress out of managing a busy spa. From digital health forms to real-time calendars and invoicing, everything runs more smoothly. I especially like that therapists can check their schedules from home.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Daniel Cohen</strong><span>Spa owner in Israel</span></div>
+                            <a href="https://bizspa.com/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="spa">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M12 20c4-2 7-5.2 7-9.1A4.1 4.1 0 0 0 12 8a4.1 4.1 0 0 0-7 2.9C5 14.8 8 18 12 20Z"></path><path d="M12 8c-.3-2.3.7-4 3-5"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Spa world</span>
+                            <span class="customer-story-number" aria-hidden="true">19</span>
+                        </div>
+                        <p data-testimonial-quote>“We searched for a system tailored to wellness centers, and BIZ checked every box. The interface is easy to use, and we can track treatments, manage clients and handle finances without juggling spreadsheets.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Liat Amar</strong><span>Spa owner in Israel</span></div>
+                            <a href="https://bizspa.com/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                                    <blockquote class="customer-story-card" data-testimonial-card data-category="spa">
+                        <div class="customer-story-top">
+                            <span class="customer-story-icon" aria-hidden="true">
+                                                                    <svg viewBox="0 0 24 24"><path d="M12 20c4-2 7-5.2 7-9.1A4.1 4.1 0 0 0 12 8a4.1 4.1 0 0 0-7 2.9C5 14.8 8 18 12 20Z"></path><path d="M12 8c-.3-2.3.7-4 3-5"></path></svg>
+                                                            </span>
+                            <span class="customer-story-world">Spa world</span>
+                            <span class="customer-story-number" aria-hidden="true">20</span>
+                        </div>
+                        <p data-testimonial-quote>“Our spa prides itself on a premium experience, and BIZ supports that standard. It gives our team the tools to stay organized, from seamless booking to tracking resources and therapists.”</p>
+                        <button type="button" class="customer-story-more" data-testimonial-more data-open-label="Show less" data-closed-label="Read full story">Read full story</button>
+                        <footer>
+                            <div><strong>Tomer Azulay</strong><span>Spa owner in Israel</span></div>
+                            <a href="https://bizspa.com/" target="_blank" rel="noopener">Source</a>
+                        </footer>
+                    </blockquote>
+                            </div>
         </div>
+        <p class="customer-stories-note">Hebrew and English versions are localized while preserving the meaning of the original testimonial. Business attribution is shown only when it appeared in the source.</p>
     </div>
 </section>
 
@@ -727,6 +1039,6 @@
         </div>
     </div>
 </footer>
-<script src="/assets/site.js?v=29" defer></script>
+<script src="/assets/site.js?v=30" defer></script>
 </body>
 </html>

@@ -1338,4 +1338,60 @@
             });
         }
     }
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-testimonials]'), function (testimonials) {
+        var track = testimonials.querySelector('[data-testimonial-track]');
+        var cards = Array.prototype.slice.call(testimonials.querySelectorAll('[data-testimonial-card]'));
+        var filters = Array.prototype.slice.call(testimonials.querySelectorAll('[data-testimonial-filter]'));
+        var previous = testimonials.querySelector('[data-testimonial-prev]');
+        var next = testimonials.querySelector('[data-testimonial-next]');
+        var activeIndex = 0;
+
+        var visibleCards = function () {
+            return cards.filter(function (card) { return !card.hidden; });
+        };
+
+        var focusCard = function (index) {
+            var currentCards = visibleCards();
+            if (!currentCards.length) return;
+            activeIndex = (index + currentCards.length) % currentCards.length;
+            currentCards[activeIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        };
+
+        filters.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var category = button.getAttribute('data-testimonial-filter') || 'all';
+                filters.forEach(function (filter) {
+                    var selected = filter === button;
+                    filter.classList.toggle('is-active', selected);
+                    filter.setAttribute('aria-pressed', selected ? 'true' : 'false');
+                });
+                cards.forEach(function (card) {
+                    card.hidden = category !== 'all' && card.getAttribute('data-category') !== category;
+                    card.classList.remove('is-expanded');
+                    var more = card.querySelector('[data-testimonial-more]');
+                    if (more) {
+                        more.textContent = more.getAttribute('data-closed-label') || '';
+                        more.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                activeIndex = 0;
+                focusCard(0);
+            });
+        });
+
+        cards.forEach(function (card) {
+            var more = card.querySelector('[data-testimonial-more]');
+            if (!more) return;
+            more.setAttribute('aria-expanded', 'false');
+            more.addEventListener('click', function () {
+                var expanded = card.classList.toggle('is-expanded');
+                more.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                more.textContent = expanded ? (more.getAttribute('data-open-label') || '') : (more.getAttribute('data-closed-label') || '');
+            });
+        });
+
+        if (previous) previous.addEventListener('click', function () { focusCard(activeIndex - 1); });
+        if (next) next.addEventListener('click', function () { focusCard(activeIndex + 1); });
+    });
 }());
